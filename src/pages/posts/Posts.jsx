@@ -66,7 +66,6 @@ const Posts = () => {
 
   return (
     <div className='posts'>
-        <Navbar />
         <div className="post-main">
         <div className="posts-container">
             <div className="post-time">
@@ -212,8 +211,7 @@ const Posts = () => {
                 </div>
             </div>
          </div>
-         </div>    
-         <Footer />    
+         </div>     
     </div>
     
   )

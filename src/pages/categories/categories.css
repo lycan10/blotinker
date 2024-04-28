@@ -1,0 +1,21 @@
+.category-container{
+    padding:  4rem 3rem 4rem;
+}
+.category-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.category-title p{
+    font-family: var(--font-family);
+    font-size: 23px;
+    font-weight: 400;
+}
+.category-content-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 120px;
+}

@@ -1,0 +1,28 @@
+.postcards{
+    /* background-color: red; */
+}
+.postcards-image{
+    width: 100%;
+    height: 100%;
+}
+.postcards-image img{ 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.postcards-title h1{
+    font-family: var(--font-family);
+    font-size: 24px;
+    line-height: 2rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+.postCard-spacing ul li {
+    margin: 1.5rem 0;
+    font-size: 12px;
+    color: grey;
+}
+.postCard-spacing ul span li {
+    color: grey;
+}
