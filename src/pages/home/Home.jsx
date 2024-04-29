@@ -27,6 +27,7 @@ import PopularCards from '../../components/popularcards/PopularCards';
 import transition from '../../transition';
 
 import { motion } from "framer-motion";
+import Categories from '../categories/Categories'
 
 const Home = () => {
 
@@ -170,6 +171,9 @@ const Home = () => {
                 })
             }
         </div>
+        </div>
+        <div className="home-categories">
+            <Categories />
         </div>
         <div className="home-cta" id='subscribe'>
             <div className="home-cta-container">

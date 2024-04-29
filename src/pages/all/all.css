@@ -1,0 +1,13 @@
+.all-container{
+    padding: 2rem 0;
+}
+.all-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.all-title h1{
+    font-family: "inter";
+    font-size: 26px;
+    font-weight: 200;
+}

@@ -10,6 +10,10 @@ import Home from './pages/home/Home';
 import Posts from './pages/posts/Posts';
 import Categories from './pages/categories/Categories';
 import CreatePost from './pages/createpost/CreatePost';
+import All from './pages/all/All';
+import Travel from './pages/travel/Travel';
+import Food from './pages/food/Food';
+import Health from './pages/health/Health';
 
 
 // window.addEventListener('scroll', function() {
@@ -31,7 +35,10 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/posts' element={<Posts/>} />
             <Route path="/createpost" element={<CreatePost />} />
-            <Route path='/categories' element={<Categories />} />
+            <Route path='/all' element={<All/>} />
+            <Route path='/travel' element={<Travel/>} />
+            <Route path='/food' element={<Food />} />
+            <Route path='/health' element={<Health />} />
         </Routes>
         <Footer />
       </BrowserRouter>

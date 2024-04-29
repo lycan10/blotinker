@@ -51,15 +51,25 @@ const Navbar = () => {
     }
 
     const navigateToAll = () => {
-        const newUrl = "/categories"
+        const newUrl = "/all"
         window.location.href = newUrl
         setIsOpen(false)
     }
-
-     const navigateToSubscribe = () => {
-        navigate('/#subscribe');
-        setIsOpen(false);
-    };
+    const navigateToTravel = () => {
+        const newUrl = "/travel"
+        window.location.href = newUrl
+        setIsOpen(false)
+    }
+    const navigateToFood = () => {
+        const newUrl = "/food"
+        window.location.href = newUrl
+        setIsOpen(false)
+    }
+    const navigateToHealth = () => {
+        const newUrl = "/health"
+        window.location.href = newUrl
+        setIsOpen(false)
+    }
 
     const navigateToCreatePost = () => {
         navigate('/createpost');
@@ -88,9 +98,9 @@ const Navbar = () => {
                    </div>
                    <div className="navbar-menus-container slide-top">
                    <div className="navbar-menus">
-                    <NavLink className="links" onClick={navigateToAll}>TRAVEL AND ADVENTURE</NavLink>
-                    <NavLink className="links" onClick={navigateToAll}>HEALTH AND WELLNESS</NavLink>
-                    <NavLink className="links" onClick={navigateToAll}>FOOD AND RECIPES</NavLink>
+                    <NavLink className="links" onClick={navigateToTravel}>TRAVEL AND ADVENTURE</NavLink>
+                    <NavLink className="links" onClick={navigateToHealth}>HEALTH AND WELLNESS</NavLink>
+                    <NavLink className="links" onClick={navigateToFood}>FOOD AND RECIPES</NavLink>
                     <NavLink // CSS class name for the active state
                     className="links" onClick={navigateToAll}>ALL</NavLink>
                     <NavLink className="links">HOME</NavLink>

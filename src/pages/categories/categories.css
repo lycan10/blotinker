@@ -1,5 +1,5 @@
 .category-container{
-    padding:  4rem 3rem 4rem;
+    padding:  2rem 3rem 4rem;
 }
 .category-title{
     display: flex;
@@ -14,8 +14,4 @@
     font-weight: 400;
 }
 .category-content-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 30px;
-    row-gap: 120px;
 }

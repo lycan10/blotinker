@@ -9,8 +9,6 @@ import CategoryCards from '../../components/categorycards/CategoryCards'
 import "./categorycards.css"
 import { FaArrowRightLong } from "react-icons/fa6";
 
-import cat1 from "../../assets/sub1.jpg"
-
 import { motion } from "framer-motion";
 
 
@@ -23,8 +21,8 @@ const Categories = ({ id, img, title, author, header }) => {
             <h1>{header}</h1>
             <FaArrowRightLong className='category-menu-title-icon' />
           </div>
-          <div className="category-menu-content-container">
-            <div className="category-menu-content-left">
+          <div className="category-menu-content-container2">
+            <div className="category2-menu-content-left">
             <div className="category-menu-content-left-top">
             <div className="category-menu-content-left-top-image">
             <img src={img} alt="" />
@@ -77,7 +75,7 @@ const Categories = ({ id, img, title, author, header }) => {
             </div>
             </div>
             </div>
-            <div className="category-menu-content-right-container">
+            <div className="category2-menu-content-right-container">
               <div className="category-menu-content-right">
                 <img src={img} alt="" />
                 <h1>{author}</h1>
