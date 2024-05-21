@@ -1,12 +1,14 @@
 import React, {useState} from 'react'
 import Navbar from '../../components/navbar/Navbar'
+import { useHistory } from 'react-router-dom';
 
 import banner from "../../assets/main-post.jpg"
 
 import Picker from "emoji-picker-react";
 
-import "./posts.css"
+import "./preview.css"
 
+import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 
 
 import { Link } from 'react-router-dom'
@@ -27,7 +29,7 @@ import image2 from "../../assets/2.jpg"
 import image3 from "../../assets/3.jpg"
 
 import Footer from '../../components/footer/Footer'
-const Posts = () => {
+const Preview = () => {
 
     const [text, setText] = useState('');
     const [showPicker, setShowPicker] = useState(false);
@@ -65,11 +67,31 @@ const Posts = () => {
         },
     ]
 
+    const navigateBack = () => {
+        window.history.back(); // Go back to the previous page
+    };
    
 
 
   return (
     <div className='posts'>
+            <div className="createpost-navbar">
+            <div className="createpost-navbar-left preview" onClick={navigateBack}>
+            <MdOutlineKeyboardArrowLeft className='preview-icon' />
+              <h1>Back to post</h1>
+    
+            </div>
+            <div className="createpost-navbar-left">
+              <p>Save draft</p>
+              <div className="createpost-view"></div>
+              <div className="createpost-publish">
+                <p>Publish</p>
+              </div>
+              {/* <div className="createpost-offcanvas-img" onClick={toggleOffcanvas}>
+              <BsReverseLayoutSidebarReverse className='canvas-icon' />
+              </div> */}
+            </div>
+          </div>
         <div className="post-main">
         <div className="posts-container">
             <div className="post-time">
@@ -217,4 +239,4 @@ const Posts = () => {
   )
 }
 
-export default Posts
+export default Preview

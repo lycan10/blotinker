@@ -103,7 +103,7 @@ const Navbar = () => {
                     <NavLink className="links" onClick={navigateToFood}>FOOD AND RECIPES</NavLink>
                     <NavLink // CSS class name for the active state
                     className="links" onClick={navigateToAll}>ALL</NavLink>
-                    <NavLink className="links">HOME</NavLink>
+                    <NavLink className="links" onClick={navigateToHome}>HOME</NavLink>
                     <NavLink className="links" to="">ABOUT</NavLink>
                     <NavLink className="links" to="">CONTACT</NavLink>
                     <div className="navbar-menu-socials">

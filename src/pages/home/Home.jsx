@@ -96,6 +96,8 @@ const Home = () => {
     ]
 
   return (
+    <div className="home">
+            <Navbar />
         <div className="home-container">
             <div className="home-featured-story">
                 <div className="home-featured-story-img">
@@ -197,6 +199,7 @@ const Home = () => {
             </div>
         </div>
 
+        </div>
         </div>
   )
 }

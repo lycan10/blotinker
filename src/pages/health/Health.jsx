@@ -6,6 +6,7 @@ import image5 from "../../assets/p1.jpg"
 import cat1 from "../../assets/sub1.jpg"
 
 import CategoryCards from "../../components/categorycards/CategoryCards.jsx"
+import Navbar from '../../components/navbar/Navbar.jsx'
 
 const HealthData = [
     {
@@ -23,7 +24,8 @@ const Health = () => {
 
   return (
     <div className='travels'>
-        <div className="travels-container">
+      <Navbar />
+        <div className="travel-container">
         {
              HealthData.map(({ id, img, title, header, author })=>{
                 return(
@@ -36,7 +38,7 @@ const Health = () => {
                       author={author}
                     />
                   </div>
-                      )
+                      ) 
                 })
             }
     </div>

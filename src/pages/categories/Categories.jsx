@@ -50,6 +50,7 @@ const foodData = [
 const Categories = () => {
 
   return (
+    <div className="category">
         <div className="category-container">
 
           <div className="category-content-container">
@@ -103,6 +104,7 @@ const Categories = () => {
                 })
             }
             </div>
+        </div>
         </div>
   )
 }

@@ -6,6 +6,7 @@ import image6 from "../../assets/p2.jpg"
 import cat1 from "../../assets/sub1.jpg"
 
 import CategoryCards from "../../components/categorycards/CategoryCards.jsx"
+import Navbar from '../../components/navbar/Navbar.jsx'
 
 const foodData = [
     {
@@ -24,7 +25,8 @@ const Food = () => {
 
   return (
     <div className='travels'>
-        <div className="travels-container">
+      <Navbar />
+        <div className="travel-container">
         {
               foodData.map(({ id, img, title, header, author })=>{
                 return(

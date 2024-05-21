@@ -6,6 +6,7 @@ import "./travel.css"
 import cat1 from "../../assets/sub1.jpg"
 
 import CategoryCards from "../../components/categorycards/CategoryCards.jsx"
+import Navbar from '../../components/navbar/Navbar.jsx'
 
 const travelData = [
     {
@@ -23,6 +24,7 @@ const Travel = () => {
 
   return (
     <div className='travels'>
+      <Navbar />
         <div className="travel-container">
         {
               travelData.map(({ id, img, title, header, author })=>{
