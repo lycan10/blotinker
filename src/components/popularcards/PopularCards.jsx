@@ -10,7 +10,8 @@ const popularCards = ({
         <div className="popular-image">
             <img src={img} alt="posts" />
         </div>
-        <div className="post-time postCard-spacing">
+        <div className="popularcards-title">
+            <div className="post-time postCard-spacing">
                 <ul>
                     <li>{postDate}</li>
                    <span><li></li></span> 
@@ -23,6 +24,7 @@ const popularCards = ({
             <div className="popularcards-content">
                 <p>{content}</p>
             </div>
+        </div>
     </div>
   )
 }

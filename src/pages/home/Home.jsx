@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import Posts from '../posts/Posts'
 
@@ -18,6 +18,9 @@ import cta1 from "../../assets/c3.jpg"
 
 import { useNavigate } from 'react-router-dom';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 
 import "./home.css";
@@ -28,6 +31,9 @@ import transition from '../../transition';
 
 import { motion } from "framer-motion";
 import Categories from '../categories/Categories'
+import PostCardMobile from '../../components/postcards/PostCardMobile'
+
+import { Navigation } from 'swiper/modules';
 
 const Home = () => {
 
@@ -134,6 +140,23 @@ const Home = () => {
             }
         </div>
         </div>
+        <div className="home-latest-container-mobile">
+            <h3>LATEST</h3>
+            <div className="home-latest">
+                <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+                    {latestData.map(({ id, img, title, postDate, postTime }) => (
+                        <SwiperSlide key={id}>
+                            <PostCardMobile
+                                img={img}
+                                title={title}
+                                postDate={postDate}
+                                postTime={postTime}
+                            />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
+        </div>
         <div className="home-sotw">
             <div className="home-sotw-image">
                 <div className="home-sotw-div"></div>
@@ -154,25 +177,40 @@ const Home = () => {
         </div>
         
         <div className="home-popular">
-            <h3>Most Popular</h3>
-        <div className="home-popular-container">
-            {
-                popularData.map(({ id, img, title, postDate, postTime, content })=>{
-                    return(
-                        <div>
+            <h3>MOST POPULAR</h3>
+            <div className="home-popular-container">
+                {
+                    popularData.map(({ id, img, title, postDate, postTime, content })=>{
+                        return(
+                            <div>
+                                <PopularCards 
+                                key={id}
+                                img={img}
+                                title={title}
+                                postDate={postDate}
+                                postTime={postTime}
+                                content={content}
+                                />
+                            </div>
+                        )
+                    })
+                }
+            </div>
+            <div className="home-popular-container-mobile">
+                <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+                    {popularData.map(({ id, img, title, postDate, postTime, content }) => (
+                        <SwiperSlide key={id}>
                             <PopularCards 
-                             key={id}
-                             img={img}
-                             title={title}
-                             postDate={postDate}
-                             postTime={postTime}
-                             content={content}
-                             />
-                        </div>
-                    )
-                })
-            }
-        </div>
+                                img={img}
+                                title={title}
+                                postDate={postDate}
+                                postTime={postTime}
+                                content={content}
+                            />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
         </div>
         <div className="home-categories">
             <Categories />
