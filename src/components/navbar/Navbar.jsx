@@ -16,6 +16,12 @@ import Modal from 'react-bootstrap/Modal';
 import sub from "../../assets/sub3.jpg"
 import close from "../../assets/close.png"
 import { IoMdClose } from "react-icons/io";
+
+import menuItems from './MenuItems';
+
+import { AiOutlineClose } from "react-icons/ai";
+import { RxHamburgerMenu } from "react-icons/rx";
+
 const date = new Date()
 
 const Navbar = () => {
@@ -27,6 +33,23 @@ const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate()
+
+    const [active, setActive] = useState(false);
+
+    const handleClick = () => {
+        setActive(!active);
+        if (!active) {
+          document.body.classList.add('no-scroll');
+        } else {
+          document.body.classList.remove('no-scroll');
+        }
+      };
+    
+      useEffect(() => {
+        return () => {
+          document.body.classList.remove('no-scroll');
+        };
+      }, []);
   
 
 
@@ -131,6 +154,34 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
+
+     <nav className="navbar-mobile">
+      <div className="navbar-logo">
+        <h1 onClick={navigateToHome}>BLOTINK</h1>
+      </div>
+      <div className="menu-icon" onClick={handleClick}>
+      {active ? <AiOutlineClose /> : <RxHamburgerMenu /> }
+      </div>
+      <ul className={active ? "nav-menu active" : "nav-menu"}>
+        {menuItems.map((item, index) => {
+          return (
+            <li key={index}>
+              <a href={item.url} className={item.cName}>
+                {item.title}
+              </a>
+            </li>
+          );
+        })}
+            <div className="navbar-menu-socials-mobile">
+                <Link ><FaFacebookF className='footer-socials-space cta-socials cta-mobile' /></Link>
+                <Link><FaXTwitter className='footer-socials-space cta-socials cta-mobile' /></Link>
+                <Link><FaInstagram className='footer-socials-space cta-socials cta-mobile' /></Link>
+            </div>
+      </ul>
+     
+    </nav>
+            
+            
             <Modal show={show} onHide={handleClose} animation={true} centered size="lg">
        
         <Modal.Body>
