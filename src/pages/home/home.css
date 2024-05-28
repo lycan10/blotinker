@@ -311,7 +311,7 @@ position: absolute;
     }
     .home-featured-story-img{
         width: 100%;
-        height: 800px;
+        height: 600px;
     }
     .home-featured-story-img img{
         width: 100%;
@@ -332,7 +332,7 @@ position: absolute;
         font-size: 16px;
         line-height: 2rem;
         font-weight: 200;
-        margin: 13rem 0 6rem;
+        margin: 7rem 0 6rem;
     }
     .home-featured-story-title{
         display: flex;
@@ -382,7 +382,7 @@ position: absolute;
     
       .home-latest-container{
         padding: 3rem 2rem;
-        height: 650px;
+        height: 550px;
       }
       .home-latest-container h3{
         font-family: var(--font-family);

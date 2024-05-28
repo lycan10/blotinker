@@ -7,7 +7,10 @@ import Picker from "emoji-picker-react";
 
 import "./posts.css"
 
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
 
 import { Link } from 'react-router-dom'
 
@@ -70,6 +73,7 @@ const Posts = () => {
 
   return (
     <div className='posts'>
+        <Navbar />
         <div className="post-main">
         <div className="posts-container">
             <div className="post-time">
@@ -190,6 +194,42 @@ const Posts = () => {
                             )
                     })
                 }
+            </div>
+            <div className="recent-posts-mobile">
+            <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+                    {recentData.map((item)=> (
+                        <SwiperSlide >
+                            <div  key={item.id}>
+                                    <div className="recent-post-image">
+                                        <img src={item.img} alt="" />
+                                    </div>
+                                    <div className="recent-post-title"> <h1>{item.title}</h1> </div>
+                                    <div className="recent-post-content">
+                                    <div className="recent-post-data-container">
+                                        <div className="recent-post-data">
+                                            <div className="recent-post-data-content">
+                                                <IoEyeOutline className='recent-post-socials' />
+                                                <p>{item.views}</p>
+                                                
+                                            </div>
+                                            <div className="recent-post-data-content">
+                                                <FaRegCommentAlt className='recent-post-social' />
+                                                <span>{item.comment}</span>
+                                            </div>
+                                        </div>
+                                        <div className="recent-post-data">
+                                            <div className="recent-post-data-content">
+                                                <p>{item.likes}</p>
+                                                <span><FaRegHeart className='post-heart'/></span>
+                                            </div>
+                                        </div>
+                                    </div>
+            
+                                    </div>
+                                </div>        
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             </div>
          </div> 
          <div className="post-comments-container">
