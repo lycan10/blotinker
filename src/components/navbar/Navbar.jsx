@@ -55,8 +55,6 @@ const Navbar = () => {
           document.body.classList.remove('no-scroll');
         };
       }, []);
-  
-
 
     const toggleDropdown = () => {
         console.log('Toggle dropdown');
@@ -115,7 +113,7 @@ const Navbar = () => {
                 toast.success('Success');
               },
               onError: (err)=>{
-                toast.error('Error');
+                toast.error(err?.message || 'Error');
               }
             }
           );

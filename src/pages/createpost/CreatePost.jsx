@@ -19,6 +19,7 @@ import { useUploadFile } from '../../components/hooks/useUploadFile';
 import { useSavePost } from '../../components/hooks/useSavePost';
 import { timeAgo } from '../../util/dateFormat';
 import { IoIosHome } from "react-icons/io";
+import { IoMdLogOut } from "react-icons/io";
 import { Categories } from 'emoji-picker-react';
 import { useGetData } from '../../components/hooks/useGetData';
 import { useQueryClient } from "react-query";
@@ -26,6 +27,7 @@ import { useGetCategory, QUERY_KEY_FOR_CATEGORY} from '../../components/hooks/us
 import CreateCategory from '../../components/categorycards/createCategory';
 import { FaSpinner } from 'react-icons/fa';
 import { toast } from 'react-toastify';
+import { useSignOut } from 'react-auth-kit';
 
 const CreatePost = () => {
   const navigate = useNavigate();
@@ -33,7 +35,8 @@ const CreatePost = () => {
   const postFromParams = searchParams.get('post');
   const [showOffcanvas, setShowOffcanvas] = useState(true);
   const toggleOffcanvas = () => setShowOffcanvas(!showOffcanvas);
-  const { token, userInfo }= useGetUserInfo();
+  const { userInfo }= useGetUserInfo();
+  const signOut = useSignOut
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
   const [postId, setPostId] = useState(null);
@@ -85,13 +88,15 @@ const CreatePost = () => {
             setPostId(data.post.id);
             setSearchParams({ post: data.post.slug });
             setPost(data.post);
-            toast.success('Post Saved');
+            toast.success(status == 'draft' ?'Saved to draft': 'Published');
           },
           onError:(err)=>{
             toast.error('unable to save post');
           }
         }
       );
+    }else{
+      toast.error('Please ensure that title, content and featured image are set');
     }
   };
 
@@ -167,15 +172,19 @@ const CreatePost = () => {
           <div className="createpost-navbar-left">
             <h1>Create post</h1>
           </div>
-          <div className="createpost-navbar-left">
-            <p onClick={() => handleSavePost({status: 'draft'})}>Save draft</p>
+          <div role="button" className="createpost-navbar-left"  onClick={() => handleSavePost({status: 'draft'})}>
+            <p>Save draft</p>
             <div className="createpost-view"></div>
-            <div className="createpost-publish">
-              <p onClick={() => handleSavePost({status: 'published'})}>Publish</p>
+            <div className="createpost-publish" role="button" onClick={() => handleSavePost({status: 'published'})}>
+              <p>Publish</p>
             </div>
             <div className="createpost-offcanvas-img" onClick={toggleOffcanvas}>
               <BsReverseLayoutSidebarReverse className='canvas-icon' />
             </div>
+            <div role="button" className="ps-4" onClick={()=>signOut()}>
+              <p className='text-danger'>Logout</p>
+            </div>
+            
           </div>
         </div>
         <div className="createpost-body-container">
@@ -229,7 +238,7 @@ const CreatePost = () => {
                     height: '150px',
                   }}
                 >
-                  {!featuredImage ? '' : isLoading ? <><FaSpinner className="spinner-icon" style={{fontSize:'16px'}} /> Uploading</> : <p>Set featured image</p>}
+                  {!featuredImage ? 'Set featured image' : isLoading ? <><FaSpinner className="spinner-icon" style={{fontSize:'16px'}} /> Uploading</> : <p>Set featured image</p>}
                 </div>
                 <input
                   type="file"
@@ -292,6 +301,5 @@ const CreatePost = () => {
     </div>
   );
 };
-
 
 export default CreatePost;

@@ -4,22 +4,22 @@ import simg from '../assets/p3.jpg';
 import { useMutation } from 'react-query';
 import {useSignIn} from 'react-auth-kit';
 import { loginUser } from '../components/hooks/useLoginUser';
-import {useIsAuthenticated} from 'react-auth-kit/';
+import { useGetUserInfo } from "../components/hooks/useGetUserInfo";
+import { toast } from 'react-toastify';
 
 const Login = () => {
-  const isAuthenticated = useIsAuthenticated();
   const signIn = useSignIn();
   const navigate = useNavigate();
-  
+  const { token }= useGetUserInfo();
   const [errorMsg, setErrorMsg] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   useEffect(() => {
-    if (isAuthenticated()) {
+    if (token) {
       navigate('/createpost', { replace: true });
     }
-  }, [isAuthenticated, navigate]);
+  }, [token, navigate]);
 
   const { mutate, isLoading } = useMutation(loginUser);
 
@@ -32,6 +32,7 @@ const Login = () => {
     mutate(props, {
       onError: (err) => {
         setErrorMsg(err?.message || 'Unable to login due to an unknown error');
+        toast.error(err?.message || 'Unable to login due to an unknown error');
       },
       onSuccess: (res) => {
         const result = res.data;
@@ -41,10 +42,12 @@ const Login = () => {
           tokenType: 'Bearer',
           authState: res,
         })) {
+            toast.success('Login Success');
           navigate('/createpost');
         } else {
-          alert('error');
           setErrorMsg('Unable to login due to an unknown error');
+          toast.error('Unable to login due to an unknown error');
+
         }
       },
     });

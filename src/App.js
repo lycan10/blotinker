@@ -1,8 +1,7 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
-import AnimatedRoutes from './components/AnimatedRoutes';
 
 import Home from './pages/home/Home';
 import Posts from './pages/posts/Posts';
@@ -14,17 +13,42 @@ import Food from './pages/food/Food';
 import Health from './pages/health/Health';
 import Login from './auth/login';
 import Preview from './pages/preview/Preview';
-import { AuthProvider } from "react-auth-kit";
-import { RequireAuth } from "react-auth-kit";
+import { AuthProvider, RequireAuth, useIsAuthenticated } from 'react-auth-kit';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { QueryClient, QueryClientProvider } from "react-query";
+function AppWrapper() {
+  //const location = useLocation();
+ // const hideNavbar = location.pathname === '/createpost';
+ const PrivateRoute = ({ Component }) => {
+  const isAuthenticated = useIsAuthenticated();
+  const auth = isAuthenticated();
+  return auth ? <Component /> : <Navigate to="/login" />;
+};
+  return (
+    <>
+      {/*<Navbar />*/}
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/posts/:slug' element={<Posts />} />
+        <Route
+          path='/createpost'
+          element={<PrivateRoute Component={CreatePost} />}
+        />
+        <Route path='/all' element={<All />} />
+        <Route path='/travel' element={<Travel />} />
+        <Route path='/food' element={<Food />} />
+        <Route path='/health' element={<Health />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/preview' element={<Preview />} />
+      </Routes>
+      <Footer />
+    </>
+  );
+}
 
 function App() {
-  // const location = useLocation(); // Move this line inside the function
-
-  // const hideNavbar = location.pathname === '/createpost';
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -37,30 +61,11 @@ function App() {
 
   return (
     <AuthProvider authName='' authType='localstorage'>
-      <div className="App">
+      <div className='App'>
         <ToastContainer />
         <QueryClientProvider client={queryClient}>
           <BrowserRouter>
-          {/* <Navbar /> */}
-              <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/posts/:slug' element={<Posts />} />
-                <Route
-                  path="/createpost"
-                  element={
-                    <RequireAuth loginPath='/login'>
-                      <CreatePost />
-                    </RequireAuth>
-                  }
-                />
-                <Route path='/all' element={<All />} />
-                <Route path='/travel' element={<Travel />} />
-                <Route path='/food' element={<Food />} />
-                <Route path='/health' element={<Health />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/preview' element={<Preview />} />
-              </Routes>
-            <Footer />
+            <AppWrapper />
           </BrowserRouter>
         </QueryClientProvider>
       </div>
