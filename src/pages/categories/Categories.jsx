@@ -1,112 +1,36 @@
-import React from 'react'
-import Navbar from '../../components/navbar/Navbar'
-import Footer from "../../components/footer/Footer"
+import React from 'react';
+import Navbar from '../../components/navbar/Navbar';
+import Footer from "../../components/footer/Footer";
 
-import image5 from "../../assets/p1.jpg"
-import image6 from "../../assets/p2.jpg"
-import image7 from "../../assets/p3.jpg"
-import CategoryCards from '../../components/categorycards/CategoryCards'
-import CategoryCards2 from '../../components/categorycards/CategoryCards2'
-import "./categories.css"
+import CategoryCards from '../../components/categorycards/CategoryCards';
+import CategoryCards2 from '../../components/categorycards/CategoryCards2';
+import "./categories.css";
 import { FaArrowRightLong } from "react-icons/fa6";
-
-import cat1 from "../../assets/sub1.jpg"
+import { useGetData } from '../../components/hooks/useGetData';
+import cat1 from "../../assets/sub1.jpg";
 
 import { motion } from "framer-motion";
 
-const travelData = [
-  {
-      id: 0,
-      header: "Travel & Adventure",
-      img: cat1,
-      title: "FETCH FESTIVAL BRLN 2023",
-      author: "ByJena McGregorForbes Staff",
-    
-  }
-]
-const HealthData = [
-  {
-      id: 0,
-      header: "Health & Wellness",
-      img: image5,
-      title: "FETCH FESTIVAL BRLN 2023",
-      author: "ByJena McGregorForbes Staff",
-    
-  }
-]
-const foodData = [
-  {
-      id: 0,
-      header: "Food & Recipes",
-      img: image6,
-      title: "FETCH FESTIVAL BRLN 2023",
-      author: "ByJena McGregorForbes Staff",
-    
-  }
-
-]
-
-
 const Categories = () => {
-
+  const { data: travel, isLoading: loading, error } = useGetData('/posts?perPage=7&category=1&minimal=true');
+  const { data: health, isLoading: healthloading, healtherror } = useGetData('/posts?perPage=7&category=2&minimal=true');
+  const { data: food, isLoading: foodloading, fooderror } = useGetData('/posts?perPage=7&category=3&minimal=true');
+  
   return (
     <div className="category">
-        <div className="category-container">
-
-          <div className="category-content-container">
-            {
-              travelData.map(({ id, img, title, header, author })=>{
-                return(
-                   <div>
-                    <CategoryCards 
-                      key={id}
-                      header= {header}
-                      img={img}
-                      title={title}
-                      author={author}
-                    />
-                  </div>
-                      )
-                })
-            }
-            </div>
-            <div className="category-content-container">
-            {
-              HealthData.map(({ id, img, title, header, author })=>{
-                return(
-                   <div>
-                    <CategoryCards2
-                      key={id}
-                      header= {header}
-                      img={img}
-                      title={title}
-                      author={author}
-                    />
-                  </div>
-                      )
-                })
-            }
-            </div>
-            <div className="category-content-container">
-            {
-              foodData.map(({ id, img, title, header, author })=>{
-                return(
-                   <div>
-                    <CategoryCards 
-                      key={id}
-                      header= {header}
-                      img={img}
-                      title={title}
-                      author={author}
-                    />
-                  </div>
-                      )
-                })
-            }
-            </div>
+      <div className="category-container">
+        <div className="category-content-container">
+          <CategoryCards title="Travel & Adventure" data={travel && travel?.posts?.length > 0 ? travel?.posts: []}/>
         </div>
+        <div className="category-content-container">
+        <CategoryCards2 title="Health & Wellness" data={health && health?.posts?.length > 0 ? health?.posts: []}/>
         </div>
-  )
+        <div className="category-content-container">
+        <CategoryCards title="Food & Recipes" data={food && food?.posts?.length > 0 ? food?.posts: []}/>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Categories;

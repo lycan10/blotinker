@@ -1,9 +1,10 @@
 import React from 'react'
 
 import "./postcards.css"
+import { Link } from 'react-router-dom';
 
 const PostCardMobile = ({
-    img, postDate, postTime, title
+    img, postDate, postTime, title, slug
 }) => {
     
   return (
@@ -20,7 +21,7 @@ const PostCardMobile = ({
                 </ul>
         </div>
         <div className="postcards-title">
-            <h1>{title}</h1>
+        <Link className="text-decoration-none text-dark" to={`/posts/${slug}`}><h1>{title}</h1></Link>
         </div>
     </div>
     </div>

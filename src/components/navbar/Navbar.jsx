@@ -6,7 +6,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 import { FaInstagram } from "react-icons/fa6";
 import { AiOutlineLink } from "react-icons/ai";
-
+import { toast } from 'react-toastify';
 import {HashLink} from "react-router-hash-link"
 
 import { NavLink, Link, useNavigate } from "react-router-dom"
@@ -21,6 +21,8 @@ import menuItems from './MenuItems';
 
 import { AiOutlineClose } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useCreate } from '../hooks/useCreate';
+import Spinner from 'react-bootstrap/Spinner';
 
 const date = new Date()
 
@@ -35,6 +37,9 @@ const Navbar = () => {
     const navigate = useNavigate()
 
     const [active, setActive] = useState(false);
+
+    const { mutate, isLoading, isError, error } = useCreate();
+    const [email, setEmail] = useState('');
 
     const handleClick = () => {
         setActive(!active);
@@ -99,6 +104,24 @@ const Navbar = () => {
         setIsOpen(false);
     };
 
+    const handleSubmit = () => {
+        if (email) {
+          mutate(
+            { email, name:email, 'endpoint':'/subscribers' },
+            {
+              onSuccess: (data) => {
+                setEmail('');
+                setShow(false);
+                toast.success('Success');
+              },
+              onError: (err)=>{
+                toast.error('Error');
+              }
+            }
+          );
+        }
+      };
+
     return (
         <div className='navbar'>
             <div className="navbar-container">
@@ -140,10 +163,17 @@ const Navbar = () => {
                     <div className="home-cta-form-input">
                         <div className="home-cta-input-button">
                             <p>Email <span>*</span></p>
-                            <h3>SUBSCRIBE</h3>
+                            <h3 onClick={()=>handleSubmit()}>{isLoading ? <><Spinner
+                            as="span"
+                            animation="grow"
+                            size="sm"
+                            role="status"
+                            aria-hidden="true"
+                            />
+                            <span>Loading...</span></>: "SUBSCRIBE" }</h3>
                         </div>
                         <div className="home-cta-form-input-main">
-                            <input type="text" />
+                            <input value={email} type="text" onChange={(e)=>setEmail(e.target.value)} />
                         </div>
                     </div>
                     </div>
@@ -204,10 +234,17 @@ const Navbar = () => {
                             <input type="text" placeholder='Your name' />
                         </div>
                         <div className="sub-input">
-                        <input type="text" placeholder='your.email@example.com' />
+                        <input value={email} type="text" placeholder='your.email@example.com' onChange={(e)=>setEmail(e.target.value)} />
                         </div>
-                        <div className="sub-input-button">
-                            SUBSCRIBE
+                        <div className="sub-input-button" onClick={()=>handleSubmit()}>
+                          {isLoading ? <><Spinner
+                            as="span"
+                            animation="grow"
+                            size="sm"
+                            role="status"
+                            aria-hidden="true"
+                            />
+                            <span>Loading...</span></>: "SUBSCRIBE" }
                         </div>
                     </div>
                     <div className="sub-footer">

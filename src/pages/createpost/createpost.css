@@ -1,3 +1,4 @@
+
 .createpost{
 }
 .createpost-container{
@@ -92,11 +93,11 @@ font-size: 23px;
     align-items: center; 
 }
 .createpost-body-input-title{
-    width: 50%;
+    width: 90%;
     margin-bottom: 0rem; 
 }
 .createpost-body-input{
-    width: 50%;
+    width: 90%;
     margin-bottom: 0rem;
 
 }
@@ -290,4 +291,23 @@ font-size: 23px;
     align-items: center;
     padding-left: 2px;
 
+}
+
+
+.editor-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.toolbar-container {
+    margin-bottom: 10px;
+}
+
+.ck-editor__editable {
+    height: 100%;
+    overflow: auto;
 }

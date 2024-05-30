@@ -2,18 +2,6 @@ import React, {useEffect, useRef, useState} from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import Posts from '../posts/Posts'
 
-import banner from "../../assets/main-post.jpg"
-import Footer from '../../components/footer/Footer'
-
-import image1 from "../../assets/1.jpg"
-import image2 from "../../assets/2.jpg"
-import image3 from "../../assets/3.jpg"
-import image4 from "../../assets/4.jpg"
-
-import image5 from "../../assets/p1.jpg"
-import image6 from "../../assets/p2.jpg"
-import image7 from "../../assets/p3.jpg"
-
 import cta1 from "../../assets/c3.jpg"
 
 import { useNavigate } from 'react-router-dom';
@@ -21,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-
+import Spinner from 'react-bootstrap/Spinner';
 
 import "./home.css";
 import PostCards from '../../components/postcards/PostCards';
@@ -32,109 +20,79 @@ import transition from '../../transition';
 import { motion } from "framer-motion";
 import Categories from '../categories/Categories'
 import PostCardMobile from '../../components/postcards/PostCardMobile'
-
+import { toast } from 'react-toastify';
 import { Navigation } from 'swiper/modules';
+
+import { useGetData } from '../../components/hooks/useGetData';
+import { useCreate } from '../../components/hooks/useCreate';
+import { dateFormat } from '../../util/dateFormat';
+import { Link, useHistory } from 'react-router-dom';
 
 const Home = () => {
 
-    const navigate = useNavigate()
-
-    const latestData = [
-        {
-            id: 0,
-            img: image2,
-            title: "THE UNBRANDED BRAND",
-            postDate: "Jun 12, 2023",
-            postTime: 2,
-            height:300 // Specify the height for the first post card
-        },
-        {
-            id: 1,
-            img: image4,
-            title: "SEEKING INSPIRATION? 15 RESOURCES THAT WILL SURPRISE YOU",
-            postDate: "Jun 12, 2023",
-            postTime: 4,
-            height: 400 // Specify the height for the second post card
-        },
-        {
-            id: 2,
-            img:image3,
-            title: "73 QUESTIONS WITH DONNA FAY",
-            postDate: "Jun 12, 2023",
-            postTime: 1,
-            height: 280
-        },
-        {
-            id: 3,
-            img:image1,
-            title: "HOW TO BRAND A DISEASE?",
-            postDate: "Jun 12, 2023",
-            postTime: 1,
-            height: 320
+    const navigate = useNavigate();
+    const [email, setEmail]=useState('');
+    const { mutate, isLoading, isError } = useCreate();
+    const { data: latest, isLoading: loading } = useGetData('/posts?perPage=7&status=published&minimal=true');
+    const { data: storyOftheWeek, isLoading: storyOftheWeekloading, storyOftheWeekerror } = useGetData('/posts?perPage=1&category=8&minimal=true');
+    const { data: featured, isLoading: featuredloading, featurederror } = useGetData('/posts?perPage=1&category=7&minimal=true');
+    const { data: popular, isLoading: popularloading, popularerror } = useGetData('/posts?perPage=3&status=published&popular=true&minimal=true');
+    
+    const handleSubmit = () => {
+        if (email) {
+          mutate(
+            { email, name:email, 'endpoint':'/subscribers' },
+            {
+              onSuccess: (data) => {
+                setEmail('');
+                toast.success('Success');
+              },
+              onError: (err)=>{
+                toast.error('Error');
+              }
+            }
+          );
         }
-    ]
-
-    const popularData = [
-        {
-            id: 0,
-            img: image5,
-            title: "FETCH FESTIVAL BRLN 2023",
-            content: "See the full program for the upcoming festival. Early bird tickets are on sale now.",
-            postDate: "Jun 12, 2023",
-            postTime: 2,
-        },
-        {
-            id: 1,
-            img: image6,
-            title: "365 DAYS. 365 FRAMES.",
-            content: "What can we learn from Matthew Soja’s latest work? Shots from the same location in Oslo for one whole year, every single day.",
-            postDate: "Jun 12, 2023",
-            postTime: 4,
-        },
-        {
-            id: 2,
-            img:image7,
-            title: "20 MUSEUMS YOU SHOULD VISIT AT LEAST ONCE",
-            content: "The full list includes 10 cities in 8 different countries.",
-            postDate: "Jun 12, 2023",
-            postTime: 1,
-        }
-    ]
-
+      };
   return (
     <div className="home">
             <Navbar />
         <div className="home-container">
+        {
+            featured && featured?.posts.length > 0 &&
             <div className="home-featured-story">
                 <div className="home-featured-story-img">
-                    <img src={banner} alt="" />
+                    <img src={featured?.posts[0]?.imageUrl} alt="" />
                 </div>
                 <div className="home-featured-story-content">
                     <p>FEATURED STORY</p>
                     <div className="home-featured-story-title">
                         <div className="home-featured-story-title">
                             <ul>
-                                <li>Jun 12, 2023</li>
+                                <li>{dateFormat(featured?.posts[0].createdAt)}</li>
                             <span><li></li></span> 
-                                <li>2 min</li>
+                                <li>{featured?.posts[0].read_time}</li>
                             </ul>
                         </div>
-                        <h1 onClick={()=> navigate("/posts")}>A SURREAL CONCRETE DREAM</h1>
+                        <Link className="text-decoration-none text-white" to={`/posts/${featured?.posts[0].slug}`}><h1 className='text-uppercase'>{featured?.posts[0].title}</h1></Link>
                     </div>
                 </div>
-        </div>
+            </div>
+        }
         <div className="home-latest-container">
             <h3>LATEST</h3>
         <div className="home-latest"> 
             {
-                latestData.map(({ id, img, title, postDate, postTime, height }) => (
+                latest && latest?.posts?.length > 0 &&
+                latest?.posts?.map(({ id, imageUrl, title, createdAt, views, slug }, i) => (
                     <PostCards
                         key={id}
-                        img={img}
+                        img={imageUrl}
                         title={title}
-                        postDate={postDate}
-                        postTime={postTime}
-                        height={height}
+                        postDate={dateFormat(createdAt)}
+                        postTime={views}
+                        slug={slug}
+                        height={i === 0 ? 300: i===1 ? 400: i===2 ? 280 : 320}
                     />
                 ))
             }
@@ -144,13 +102,14 @@ const Home = () => {
             <h3>LATEST</h3>
             <div className="home-latest">
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                    {latestData.map(({ id, img, title, postDate, postTime }) => (
+                    { latest && latest?.posts?.length > 0 && latest?.posts.map(({ id, imageUrl, title, createdAt, views, slug  }) => (
                         <SwiperSlide key={id}>
                             <PostCardMobile
-                                img={img}
+                                img={imageUrl}
                                 title={title}
-                                postDate={postDate}
-                                postTime={postTime}
+                                postDate={createdAt}
+                                postTime={views}
+                                slug={slug}
                             />
                         </SwiperSlide>
                     ))}
@@ -162,16 +121,18 @@ const Home = () => {
                 <div className="home-sotw-div"></div>
                 <div className=" home-sotw-content">
                     <p>STORY OF THE WEEK</p>
-                    <div className="home-sotw-title">
-                        <div className=" post-category home-sotw-time">
-                            <ul>
-                                <li>Jun 12, 2023</li>
-                            <span><li></li></span> 
-                                <li>2 min</li>
-                            </ul>
+                    { storyOftheWeek && storyOftheWeek?.posts.length > 0 &&
+                        <div className="home-sotw-title">
+                            <div className=" post-category home-sotw-time">
+                                <ul>
+                                    <li>{dateFormat(storyOftheWeek?.posts[0].createdAt)}</li>
+                                <span><li></li></span> 
+                                    <li>{storyOftheWeek?.posts[0].read_time}</li>
+                                </ul>
+                            </div>
+                            <Link className="text-decoration-none text-dark" to={`/posts/${storyOftheWeek?.posts[0].slug}`}><h1 className='text-uppercase'>{storyOftheWeek?.posts[0].title}</h1></Link>
                         </div>
-                        <h1>THE STORY BEHIND “FYI: I’M ABOUT TO LOVE YOU” — AN INTERVIEW WITH KAY VAN HANS</h1>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
@@ -179,36 +140,15 @@ const Home = () => {
         <div className="home-popular">
             <h3>MOST POPULAR</h3>
             <div className="home-popular-container">
-                {
-                    popularData.map(({ id, img, title, postDate, postTime, content })=>{
-                        return(
-                            <div>
-                                <PopularCards 
-                                key={id}
-                                img={img}
-                                title={title}
-                                postDate={postDate}
-                                postTime={postTime}
-                                content={content}
-                                />
-                            </div>
-                        )
-                    })
+                { popular && popular?.posts.length > 0 &&
+                    <PopularCards data={popular.posts} />
                 }
             </div>
             <div className="home-popular-container-mobile">
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                    {popularData.map(({ id, img, title, postDate, postTime, content }) => (
-                        <SwiperSlide key={id}>
-                            <PopularCards 
-                                img={img}
-                                title={title}
-                                postDate={postDate}
-                                postTime={postTime}
-                                content={content}
-                            />
-                        </SwiperSlide>
-                    ))}
+                { popular && popular?.posts &&
+                    <PopularCards data={popular.posts} />
+                }
                 </Swiper>
             </div>
         </div>
@@ -224,10 +164,17 @@ const Home = () => {
                     <div className="home-cta-form-input">
                         <div className="home-cta-input-button">
                             <p>Email <span>*</span></p>
-                            <h3>SUBSCRIBE</h3>
+                            <h3 onClick={()=>handleSubmit()}>{isLoading ? <><Spinner
+                            as="span"
+                            animation="grow"
+                            size="sm"
+                            role="status"
+                            aria-hidden="true"
+                            />
+                            <span>Loading...</span></>: "SUBSCRIBE" }</h3>
                         </div>
                         <div className="home-cta-form-input-main">
-                            <input type="text" />
+                            <input type="text" value={email} onChange={(e)=> setEmail(e.target.value)} />
                         </div>
                     </div>
                 </div>

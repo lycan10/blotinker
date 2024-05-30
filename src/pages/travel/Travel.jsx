@@ -1,6 +1,6 @@
 import React from 'react'
 import Categories from '../categories/Categories'
-
+import { useGetData } from '../../components/hooks/useGetData';
 import "./travel.css"
 
 import cat1 from "../../assets/sub1.jpg"
@@ -20,28 +20,14 @@ const travelData = [
   ]
 
 const Travel = () => {
-
+  const { data: travel, isLoading: loading, error } = useGetData('/posts?perPage=15&category=1&minimal=true');
 
   return (
     <div className='travels'>
       <Navbar />
-        <div className="travel-container">
-        {
-              travelData.map(({ id, img, title, header, author })=>{
-                return(
-                   <div>
-                    <CategoryCards 
-                      key={id}
-                      header= {header}
-                      img={img}
-                      title={title}
-                      author={author}
-                    />
-                  </div>
-                      )
-                })
-            }
-    </div>
+      <div className="travel-container">
+        <CategoryCards title="Travel & Adventure" data={travel && travel?.posts?.length > 0 ? travel?.posts: []}/>    
+      </div>
     </div>
   )
 }

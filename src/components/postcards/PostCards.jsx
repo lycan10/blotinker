@@ -1,9 +1,10 @@
 import React from 'react'
 
 import "./postcards.css"
+import { Link } from 'react-router-dom';
 
 const PostCards = ({
-    img, postDate, postTime, title, height
+    img, postDate, postTime, title, slug, height
 }) => {
     const cardStyle = {
         height: `${height}px`,
@@ -21,7 +22,7 @@ const PostCards = ({
                 </ul>
             </div>
             <div className="postcards-title">
-                <h1>{title}</h1>
+            <Link className="text-decoration-none text-dark" to={`/posts/${slug}`}><h1>{title}</h1></Link>
             </div>
     </div>
   )
