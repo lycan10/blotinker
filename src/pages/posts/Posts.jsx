@@ -37,13 +37,13 @@ import { QUERY_KEY_FOR_COMMENTS } from '../../components/hooks/useGetComments';
 import { useLikePost } from '../../components/hooks/useLikePost';
 import { useCreate } from '../../components/hooks/useCreate';
 import { useQueryClient } from "react-query";
-import {useIsAuthenticated} from 'react-auth-kit/';
 import {Loader} from '../../util/loader';
 import { Comments } from '../../components/comment/comments';
+import { useGetUserInfo } from "../../components/hooks/useGetUserInfo";
 
 const Posts = () => {
     const { slug } = useParams();
-    const isAuthenticated = useIsAuthenticated();
+    const { token }= useGetUserInfo();
     const { data, isLoading, error } = useGetData('/posts/'+slug);
     const { data:recentData, recentLoading, errorRecent } = useGetData('/posts?perPage=3');
     const { mutate, isLoading: likeIsLoading, isError: errorLike, error: likeError } = useLikePost();
@@ -114,7 +114,7 @@ const Posts = () => {
                         <li>{dateFormat(data?.createdAt)}</li>
                         <span><li></li></span>
                         <li>{data.read_time} read</li>
-                        {isAuthenticated && (
+                        {token && (
                           <Link to={`/createpost?post=${data.slug}`}>
                             <li>Edit Post</li>
                           </Link>
