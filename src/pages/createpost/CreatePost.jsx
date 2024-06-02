@@ -33,7 +33,7 @@ const CreatePost = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const postFromParams = searchParams.get('post');
-  const [showOffcanvas, setShowOffcanvas] = useState(true);
+  const [showOffcanvas, setShowOffcanvas] = useState(false);
   const toggleOffcanvas = () => setShowOffcanvas(!showOffcanvas);
   const { userInfo }= useGetUserInfo();
   const signOut = useSignOut

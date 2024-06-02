@@ -335,7 +335,6 @@ font-size: 21px;
         flex-direction: column;
         justify-content: center;
         align-items: center; 
-        background-color: red;
     }
     .createpost-offcanvas-img{
         background-color: black;
@@ -357,7 +356,6 @@ font-size: 21px;
         flex-direction: column;
         justify-content: center;
         align-items: center; 
-        background-color: red;
     }
     .createpost-offcanvas-img{
         background-color: black;
@@ -473,7 +471,6 @@ font-size: 21px;
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    background-color: red;
 }
 .createpost-body-input-title{
     width: 90%;

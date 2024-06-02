@@ -99,7 +99,7 @@ const AdminPage = () => {
   const signOut = useSignOut
   const [viewMode, setViewMode] = useState("dashboard");
   const [isOpen, setIsOpen] = useState(false);
-  const [showOffcanvas, setShowOffcanvas] = useState(true);
+  const [showOffcanvas, setShowOffcanvas] = useState(false);
   const toggleOffcanvas = () => setShowOffcanvas(!showOffcanvas);
 
   const handleViewChange = (mode) => {
