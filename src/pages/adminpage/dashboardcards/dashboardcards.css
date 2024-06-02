@@ -1,0 +1,155 @@
+.dashboardcards{
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1rem;
+}
+.dashboardcards-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.dashboardcards-title img{
+    width: 15px;
+    height: 15px;
+    margin-right: 0.5em;
+}
+
+.dashboardcards p{
+    font-family: "inter";
+    font-size: 14px;
+    font-weight: 400;
+}
+.dashboardcards h1{
+    font-family: "inter";
+    font-size: 33px;
+    font-weight: 600;
+}
+.dashboardcards span{
+    color: var(--color); 
+    margin-right: 4px;
+}
+
+@media screen and (max-width: 1200px) {
+    .dashboardcards{
+        width: 100%;
+        border-radius: 0.5rem;
+        background-color: white;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;    
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 1rem;
+    }
+    .dashboardcards-title{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .dashboardcards-title img{
+        width: 12px;
+        height: 12px;
+        margin-right: 0.5em;
+    }
+    
+    .dashboardcards p{
+        font-family: "inter";
+        font-size: 12px;
+        font-weight: 400;
+    }
+    .dashboardcards h1{
+        font-family: "inter";
+        font-size: 27px;
+        font-weight: 600;
+    }
+    .dashboardcards span{
+        color: var(--color); 
+        margin-right: 4px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .dashboardcards{
+        width: 100%;
+        border-radius: 0.5rem;
+        background-color: white;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;    
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 1rem;
+    }
+    .dashboardcards-title{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .dashboardcards-title img{
+        width: 15px;
+        height: 15px;
+        margin-right: 0.5em;
+    }
+    
+    .dashboardcards p{
+        font-family: "inter";
+        font-size: 12px;
+        font-weight: 400;
+        padding: 0.4rem 0;
+    }
+    .dashboardcards h1{
+        font-family: "inter";
+        font-size: 29px;
+        font-weight: 700;
+    }
+    .dashboardcards span{
+        color: var(--color); 
+        margin-right: 4px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .dashboardcards{
+        width: 100%;
+        border-radius: 0.5rem;
+        background-color: white;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;    
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 1rem;
+    }
+    .dashboardcards-title{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .dashboardcards-title img{
+        width: 15px;
+        height: 15px;
+        margin-right: 0.5em;
+    }
+    
+    .dashboardcards p{
+        font-family: "inter";
+        font-size: 12px;
+        font-weight: 400;
+        padding: 0.4rem 0;
+    }
+    .dashboardcards h1{
+        font-family: "inter";
+        font-size: 29px;
+        font-weight: 700;
+    }
+    .dashboardcards span{
+        color: var(--color); 
+        margin-right: 4px;
+    }
+}

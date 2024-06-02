@@ -1,0 +1,30 @@
+.preview{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.preview h1{
+    font-size: 16px;
+
+ }
+.preview h1:hover{
+   font-size: 16px;
+   color: var(--color);
+}
+.preview-icon{
+    color: var(--color);
+    animation: moveLeft 2s linear infinite;
+}
+@keyframes moveLeft {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-5px); /* Adjust the value as per your requirement */
+    }
+    100% {
+        transform: translateX(0px); /* Adjust the value as per your requirement */
+    }
+}
