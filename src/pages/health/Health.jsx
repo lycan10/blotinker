@@ -7,6 +7,7 @@ import cat1 from "../../assets/sub1.jpg"
 import { useGetData } from '../../components/hooks/useGetData';
 import CategoryCards from "../../components/categorycards/CategoryCards.jsx"
 import Navbar from '../../components/navbar/Navbar.jsx'
+import Footer from '../../components/footer/Footer.jsx';
 
 const HealthData = [
     {
@@ -29,6 +30,7 @@ const Health = () => {
       <div className="travel-container">
         <CategoryCards title="Health & Wellness" data={health && health?.posts?.length > 0 ? health?.posts: []}/>
       </div>
+      <Footer />
     </div>
   )
 }

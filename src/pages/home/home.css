@@ -93,10 +93,10 @@ li::marker {
   }
   .home-latest-container h3{
     font-family: var(--font-family);
-    font-size: 24px;
+    font-size: 27px;
     font-weight: 200;
     margin: 0 0.5rem 3rem;
-    letter-spacing: 1px;
+    letter-spacing: 0px;
   }
   .home-latest{
     display: grid;
@@ -183,7 +183,7 @@ position: absolute;
 }
 .home-popular h3{
     font-family: var(--font-family);
-    font-size: 24px;
+    font-size: 27px;
     font-weight: 200;
     margin: 0 0.5rem 3rem;
     letter-spacing: 1px;
@@ -381,14 +381,14 @@ position: absolute;
       }
     
       .home-latest-container{
-        padding: 3rem 2rem;
+        padding: 2rem 2rem 3rem;
         height: 550px;
       }
       .home-latest-container h3{
         font-family: var(--font-family);
-        font-size: 19px;
-        font-weight: 300;
-        margin: 0.5rem 0.5rem 1.5rem;
+        font-size: 27px;
+        font-weight: 400;
+        margin: 0rem 0.5rem 1.5rem;
         letter-spacing: 1px;
       }
       .home-latest{
@@ -472,13 +472,13 @@ position: absolute;
         color: grey;
     }
     .home-popular{
-        padding: 3rem 2rem;
+        padding: 2rem 2rem 3rem;
     }
     .home-popular h3{
         font-family: var(--font-family);
-        font-size: 19px;
+        font-size: 27px;
         font-weight: 300;
-        margin: 0.5rem 0.5rem 1.5rem;
+        margin: 0rem 0.5rem 1.5rem;
         letter-spacing: 1px;
     }
     .home-popular-container{
@@ -656,12 +656,12 @@ position: absolute;
       }
     
       .home-latest-container{
-        padding: 3rem 2rem;
+        padding: 2rem 2rem;
         height: 600px;
       }
       .home-latest-container h3{
         font-family: var(--font-family);
-        font-size: 19px;
+        font-size: 23px;
         font-weight: 300;
         margin: 0.5rem 0.5rem 1.5rem;
         letter-spacing: 1px;
@@ -747,12 +747,12 @@ position: absolute;
         color: grey;
     }
     .home-popular{
-        padding: 3rem 2rem;
+        padding: 2rem 2rem;
     }
     .home-popular h3{
         font-family: var(--font-family);
-        font-size: 19px;
-        font-weight: 300;
+        font-size: 23px;
+        font-weight: 400;
         margin: 0.5rem 0.5rem 1.5rem;
         letter-spacing: 1px;
     }
@@ -1069,6 +1069,7 @@ position: absolute;
 
     .home-popular-container-mobile{
         display: block;
+        background-color: green;
     }
     
     .home-cta{

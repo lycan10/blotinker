@@ -7,6 +7,7 @@ import cat1 from "../../assets/sub1.jpg"
 
 import CategoryCards from "../../components/categorycards/CategoryCards.jsx"
 import Navbar from '../../components/navbar/Navbar.jsx'
+import Footer from '../../components/footer/Footer.jsx';
 
 const travelData = [
     {
@@ -28,6 +29,7 @@ const Travel = () => {
       <div className="travel-container">
         <CategoryCards title="Travel & Adventure" data={travel && travel?.posts?.length > 0 ? travel?.posts: []}/>    
       </div>
+      <Footer />
     </div>
   )
 }

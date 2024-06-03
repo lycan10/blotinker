@@ -43,13 +43,15 @@ p{
 }
 .post-header h1{
     font-family: var(--font-family);
-    font-size: 40px;
-    letter-spacing: 2px;
+    font-size: 27px;
+    line-height: 2.5rem;
+    letter-spacing: 0px;
+    font-weight: 700;
     margin: 1rem 0;
 }
 .post-header p{
     font-family: "inter";
-    font-size: 18px;
+    font-size: 16px;
     line-height: 2rem;
     font-weight: 300;
 }
@@ -67,8 +69,8 @@ p{
 }
 .post-quote h1{
     font-family: var(--font-family);
-    font-size: 24px;
-    letter-spacing: 5px;
+    font-size: 19px;
+    letter-spacing: 0px;
     margin: 2.5rem 0; 
 }
 
@@ -97,35 +99,36 @@ p{
 .post-paragraph{
 
 }
-.post-paragraph h1{
-    font-family: var(--font-family);
-    font-size: 24px;
-    letter-spacing: 5px;
-    margin: 2.5rem 0; 
+.post-body h1{
+    font-family: var(--font-family) !important;
+    font-size: 19px !important;
+    letter-spacing: 0px;
+    margin: 2.5rem 0 !important; 
 }
-.post-paragraph p{
-    font-family: "inter";
-    font-size: 18px;
+.post-body p{
+    font-family: "inter" !important;
+    font-size: 16px !important;
     line-height: 2rem;
     font-weight: 300;
+    margin-bottom: 1.5rem !important;
 }
 
 .post-socials-container{
-margin-top: 4rem;
+margin-top: 3rem;
 border-top: 1.5px solid rgb(193, 193, 193);
 border-bottom: 1px solid rgb(193, 193, 193);
 display: flex;
 flex-direction: row;
 justify-content: space-between;
 align-items: center;
-padding: 1.5rem 0;
+padding: 1.2rem 0;
 }
 .posts-socials{
 
 }
 .posts-socials a{
     color: black;
-    font-size: 21px;
+    font-size: 19px;
 }
 .posts-socials-space{
     margin-right: 2rem;
@@ -164,7 +167,7 @@ padding: 1.5rem 0;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 .post-data-content{
     display: flex;
@@ -175,11 +178,12 @@ padding: 1.5rem 0;
 }
 .post-data-content p{
     font-family: "inter";
-    font-size: 16px;
+    font-size: 14px !important;
     font-weight: 300;
     letter-spacing: 1px;
     margin-right: 3px;
-    color: grey;
+    color: var(--color);
+    margin-bottom: 0 !important;
 }
 .post-data-content span{
     font-family: "inter";
@@ -189,8 +193,10 @@ padding: 1.5rem 0;
     color: grey;
 }
 .post-heart{
-    color: #F4CE14;
-    font-size: 14px;
+    /* color: #F4CE14; */
+    color: grey;
+    font-size: 12px;
+    margin-bottom: 3px;
     cursor: pointer;
 }
 
@@ -218,7 +224,7 @@ padding: 1.5rem 0;
     object-fit: cover;
 }
 .recent-post-title{
-    margin: 2rem 0; 
+    margin: 1.5rem 0; 
     padding: 0 24px;
     height: 40px;
 }

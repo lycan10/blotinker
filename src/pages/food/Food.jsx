@@ -7,6 +7,7 @@ import cat1 from "../../assets/sub1.jpg"
 import { useGetData } from '../../components/hooks/useGetData';
 import CategoryCards from "../../components/categorycards/CategoryCards.jsx"
 import Navbar from '../../components/navbar/Navbar.jsx'
+import Footer from '../../components/footer/Footer.jsx'
 
 const foodData = [
     {
@@ -30,6 +31,7 @@ const Food = () => {
       <div className="travel-container">
         <CategoryCards title="Food & Recipes" data={food && food?.posts?.length > 0 ? food?.posts: []}/>
       </div>
+      <Footer />
     </div>
   )
 }

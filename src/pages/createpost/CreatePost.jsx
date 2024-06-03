@@ -33,7 +33,7 @@ const CreatePost = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const postFromParams = searchParams.get('post');
-  const [showOffcanvas, setShowOffcanvas] = useState(true);
+  const [showOffcanvas, setShowOffcanvas] = useState(false);
   const toggleOffcanvas = () => setShowOffcanvas(!showOffcanvas);
   const { userInfo }= useGetUserInfo();
   const signOut = useSignOut
@@ -166,9 +166,9 @@ const CreatePost = () => {
     <div className='createpost'>
       <div className="createpost-container">
         <div className="createpost-navbar">
-          <div className="createpost-navbar-left">
+          {/* <div className="createpost-navbar-left">
             <IoIosHome className='createpost-navbar-icon' onClick={() => navigate('/')} />
-          </div>
+          </div> */}
           <div className="createpost-navbar-left">
             <h1>Create post</h1>
           </div>
@@ -181,9 +181,9 @@ const CreatePost = () => {
             <div className="createpost-offcanvas-img" onClick={toggleOffcanvas}>
               <BsReverseLayoutSidebarReverse className='canvas-icon' />
             </div>
-            <div role="button" className="ps-4" onClick={()=>signOut()}>
+            {/* <div role="button" className="ps-4" onClick={()=>signOut()}>
               <p className='text-danger'>Logout</p>
-            </div>
+            </div> */}
             
           </div>
         </div>
@@ -205,11 +205,11 @@ const CreatePost = () => {
                 onChange={newContent => {}}
               />
             </div>
-            <div className="createpost-add-new-post">
+            {/* <div className="createpost-add-new-post">
               <div className="createpost-new-button">
                 <IoAdd className='createpost-new-button-icon' />
               </div>
-            </div>
+            </div> */}
           </div>
           <div className={`createpost-offcanvas ${showOffcanvas ? 'show' : ''}`}>
             <div className="offcanvas-container">

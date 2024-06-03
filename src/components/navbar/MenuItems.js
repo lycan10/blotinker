@@ -33,6 +33,11 @@ const menuItems = [
         title: "Contact",
         url: "/contact",
         cName: "nav-links"
+      },
+      {
+        title: "Login",
+        url: "/admin",
+        cName: "nav-links"
       }
   ];
   

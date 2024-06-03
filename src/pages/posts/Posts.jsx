@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Navbar from '../../components/navbar/Navbar'
+import Footer from '../../components/footer/Footer'
 
 import banner from "../../assets/main-post.jpg"
 import { FaSpinner } from 'react-icons/fa';
@@ -29,7 +30,6 @@ import image1 from "../../assets/1.jpg"
 import image2 from "../../assets/2.jpg"
 import image3 from "../../assets/3.jpg"
 
-import Footer from '../../components/footer/Footer'
 import { timeAgo, dateFormat } from '../../util/dateFormat';
 import { useParams } from 'react-router-dom';
 import { useGetData, QUERY_KEY_FOR_DATA } from '../../components/hooks/useGetData';
@@ -265,6 +265,7 @@ const Posts = () => {
 
                   <Comments id={data.id} />
               </div>
+              <Footer />
             </div>
             )
           )}

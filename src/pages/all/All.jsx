@@ -3,6 +3,7 @@ import Categories from '../categories/Categories'
 
 import "./all.css"
 import Navbar from '../../components/navbar/Navbar'
+import Footer from '../../components/footer/Footer'
 
 const All = () => {
   return (
@@ -14,6 +15,7 @@ const All = () => {
             </div> */}
             <Categories />
         </div>
+        <Footer />
     </div>
   )
 }

@@ -98,7 +98,7 @@ const Navbar = () => {
     }
 
     const navigateToCreatePost = () => {
-        navigate('/createpost');
+        navigate('/admin');
         setIsOpen(false);
     };
 
@@ -136,7 +136,7 @@ const Navbar = () => {
             <div className={`navbar-dropdown ${isOpen ? 'is-active' : ''}`}>
                 <div className="navbar-main-container">
                    <div className="navbar-header">
-                    <h3 onClick={navigateToCreatePost}>CREATE POST</h3>
+                    <h3 onClick={navigateToCreatePost}>LOGIN</h3>
                     <h1 onClick={navigateToHome}>BLOTINKER</h1>
                     <h3 onClick={toggleDropdown}>CLOSE</h3>
                    </div>

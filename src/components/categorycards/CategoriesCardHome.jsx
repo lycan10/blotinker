@@ -19,12 +19,12 @@ import Advert from '../advert/Advert'
 import { Advert2 } from '../advert/Advert2'
 import ListCard from '../admingridcard/ListCard'
 
-const Categories = ({ title, data }) => {
+const CategoriesCardHome = ({ title, data, goto}) => {
 
   return (
         <div className="category-card-container">
           <div className="category-menu-container">
-          <div className="category-menu-title">
+          <div className="category-menu-title" onClick={goto}>
             <h1>{title}</h1>
             <FaArrowRightLong className='category-menu-title-icon' />
           </div>
@@ -118,32 +118,8 @@ const Categories = ({ title, data }) => {
           <div className="category-menu-container-ad-container">
               <Advert />
           </div>
-          <div className="category-menu-containe-list-container">
-          <div className="category-menu-container-list">
-            <ListCard
-              img={image1}
-                        title={"The best brands to run Magnolia Software"}
-                        description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release "}
-                      />
-                       <ListCard
-                        img={image1}
-                        title={"The best brands to run Magnolia Software"}
-                        description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release "}
-                      />
-                       <ListCard
-                        img={image1}
-                        title={"The best brands to run Magnolia Software"}
-                        description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release "}
-                      />
-          </div>
-          <div className="category-menu-container-advert-container">
-            <div className="category-menu-container-advert">
-              <Advert2 />
-            </div>
-          </div>
-          </div>
         </div>
   )
 }
 
-export default Categories;
+export default CategoriesCardHome;

@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
 import Navbar from '../../components/navbar/Navbar'
+import Footer from '../../components/footer/Footer'
 import Posts from '../posts/Posts'
 
 import cta1 from "../../assets/c3.jpg"
@@ -27,6 +28,7 @@ import { useGetData } from '../../components/hooks/useGetData';
 import { useCreate } from '../../components/hooks/useCreate';
 import { dateFormat } from '../../util/dateFormat';
 import { Link, useHistory } from 'react-router-dom';
+import CategoriesHome from '../categories/CategoriesHome'
 
 const Home = () => {
 
@@ -80,7 +82,7 @@ const Home = () => {
             </div>
         }
         <div className="home-latest-container">
-            <h3>LATEST</h3>
+            <h3>Latest</h3>
         <div className="home-latest"> 
             {
                 latest && latest?.posts?.length > 0 &&
@@ -99,7 +101,7 @@ const Home = () => {
         </div>
         </div>
         <div className="home-latest-container-mobile">
-            <h3>LATEST</h3>
+            <h3>Latest</h3>
             <div className="home-latest">
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                     { latest && latest?.posts?.length > 0 && latest?.posts.map(({ id, imageUrl, title, createdAt, views, slug  }) => (
@@ -138,22 +140,25 @@ const Home = () => {
         </div>
         
         <div className="home-popular">
-            <h3>MOST POPULAR</h3>
+            <h3>Most popular</h3>
             <div className="home-popular-container">
-                { popular && popular?.posts.length > 0 &&
+                { popular && popular?.posts.length> 0 && 
                     <PopularCards data={popular.posts} />
                 }
             </div>
             <div className="home-popular-container-mobile">
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                { popular && popular?.posts &&
-                    <PopularCards data={popular.posts} />
-                }
+                { popular && popular?.posts?.length && popular?.posts && (
+                    <SwiperSlide >
+                        <PopularCards data={popular.posts} />
+                    </SwiperSlide>
+                )}
                 </Swiper>
+                
             </div>
         </div>
         <div className="home-categories">
-            <Categories />
+            <CategoriesHome />
         </div>
         <div className="home-cta" id='subscribe'>
             <div className="home-cta-container">
@@ -185,6 +190,7 @@ const Home = () => {
         </div>
 
         </div>
+        <Footer />
         </div>
   )
 }
