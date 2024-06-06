@@ -1,0 +1,274 @@
+.adminlistcard{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    border-bottom: 1px solid rgb(227, 227, 227);
+    padding: 2.5rem 0;
+}
+.adminlistcard-image{
+    margin-right: 1.5rem;
+}
+.adminlistcard-image img{
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+.adminlistcard-container{
+
+}
+.adminlistcard-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.adminlistcard-title h3{
+    font-family: "inter";
+    font-size: 19px;
+    font-weight: 500;
+}
+.adminlistcard-title p{
+    font-family: "inter";
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--color);
+}
+.adminlistcard-content{
+
+}
+.adminlistcard-content p{
+    font-family: "inter";
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5rem;
+    margin: 1rem 0;
+    
+}
+.adminlistcard-content-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.adminlistcard-content-delete{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+.adminlistcard-content-delete p{
+    font-size: 14px;
+}
+.listcard-icon{
+    margin-right: 0.5rem;
+    color: var(--color);
+}
+
+@media screen and (max-width: 1200px) {
+    .adminlistcard{
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        border-bottom: 1px solid rgb(227, 227, 227);
+        padding: 2.5rem 0;
+    }
+    .adminlistcard-image{
+        margin-right: 1.5rem;
+    }
+    .adminlistcard-image img{
+        width: 250px;
+        height: 150px;
+        object-fit: cover;
+    }
+    .adminlistcard-container{
+    
+    }
+    .adminlistcard-title{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    
+    }
+    .adminlistcard-title h3{
+        font-family: "inter";
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .adminlistcard-title p{
+        font-family: "inter";
+        font-size: 12px;
+        font-weight: 200;
+    }
+    .adminlistcard-content{
+    
+    }
+    .adminlistcard-content p{
+        font-family: "inter";
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 1.2rem;
+        margin: 0.5rem 0;
+    }
+    .adminlistcard-content-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .adminlistcard-content-delete{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-left: 1rem;
+        cursor: pointer;
+    }
+    .adminlistcard-content-delete p{
+        font-size: 14px;
+    }
+    .listcard-icon{
+        margin-right: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .adminlistcard{
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        border-bottom: 1px solid rgb(227, 227, 227);
+        padding: 2.5rem 0;
+    }
+    .adminlistcard-image{
+        margin-right: 1.5rem;
+    }
+    .adminlistcard-image img{
+        width: 250px;
+        height: 150px;
+        object-fit: cover;
+    }
+    .adminlistcard-container{
+    
+    }
+    .adminlistcard-title{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    
+    }
+    .adminlistcard-title h3{
+        font-family: "inter";
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .adminlistcard-title p{
+        font-family: "inter";
+        font-size: 12px;
+        font-weight: 200;
+    }
+    .adminlistcard-content{
+    
+    }
+    .adminlistcard-content p{
+        font-family: "inter";
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 1.2rem;
+        margin: 0.5rem 0;
+    }
+    .adminlistcard-content-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .adminlistcard-content-delete{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-left: 1rem;
+        cursor: pointer;
+    }
+    .adminlistcard-content-delete p{
+        font-size: 14px;
+    }
+    .listcard-icon{
+        margin-right: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .adminlistcard{
+        display: grid;
+        grid-template-columns: 1fr;
+        border-bottom: 1px solid rgb(227, 227, 227);
+        padding: 2rem 0;
+    }
+    .adminlistcard-image{
+        margin-right: 0rem;
+    }
+    .adminlistcard-image img{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .adminlistcard-container{
+    
+    }
+    .adminlistcard-title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    
+    }
+    .adminlistcard-title h3{
+        font-family: "inter";
+        font-size: 19px;
+        font-weight: 600;
+        margin-top: 1.5rem;
+    }
+    .adminlistcard-title p{
+        font-family: "inter";
+        font-size: 12px;
+        font-weight: 400;
+        padding: 0;
+        margin-top: 0.5rem;
+    }
+    .adminlistcard-content{
+    
+    }
+    .adminlistcard-content p{
+        font-family: "inter";
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 1.2rem;
+        margin: 0.5rem 0;
+        padding: 0;
+    }
+    .adminlistcard-content-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .adminlistcard-content-delete{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0rem;
+        margin-right: 1rem;
+        cursor: pointer;
+    }
+    .adminlistcard-content-delete p{
+        font-size: 14px;
+        padding: 0;
+    }
+    .listcard-icon{
+        margin-right: 0.3rem;
+    }
+}

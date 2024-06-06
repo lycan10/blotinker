@@ -1,0 +1,59 @@
+.advert{
+margin: 2.5rem 0;
+width: 100%;
+}
+.advert-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+.advert-title h1{
+    font-family: "inter";
+    font-size: 10px;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+}
+.advert-content{
+    width: 100%;
+    height: 300px;
+    background-color: aliceblue;
+}
+
+.advert-conten2{
+    height: 500px !important;
+}
+
+@media screen and (max-width: 960px) {
+    .advert{
+        margin: 2rem 0;
+        width: 100%;
+        }
+        .advert-container{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+           
+        }
+        .advert-title h1{
+            font-family: "inter";
+            font-size: 10px;
+            font-weight: 200;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+        }
+        .advert-content{
+            width: 100%;
+            height: 250px;
+            background-color: aliceblue;
+        }
+        
+        .advert-conten2{
+            height: 250px !important;
+        }
+}
