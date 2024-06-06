@@ -17,6 +17,12 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import AdminPage from './pages/adminpage/AdminPage';
+import PublishedPosts  from './pages/adminpage/PublishedPosts';
+import SavedDraft from './pages/adminpage/SavedDraft';
+import PostByCategory from './pages/adminpage/PostByCategory';
+import ReactGA from 'react-ga4';
+
+ReactGA.initialize('G-DBCCFMVZ04');
 
 function AppWrapper() {
   //const location = useLocation();
@@ -32,11 +38,25 @@ function AppWrapper() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/posts/:slug' element={<Posts />} />
+        <Route path='/admin'
+          element={<PrivateRoute Component={AdminPage} />}
+        />
         <Route
-          path='/createpost'
+          path='/admin/createpost'
           element={<PrivateRoute Component={CreatePost} />}
         />
-             <Route path='/admin' element={<AdminPage />} />
+        <Route
+          path='/admin/published-posts'
+          element={<PrivateRoute Component={PublishedPosts} />}
+        />
+         <Route
+          path='/admin/saved-draft'
+          element={<PrivateRoute Component={SavedDraft} />}
+        />
+        <Route
+          path='/admin/category'
+          element={<PrivateRoute Component={PostByCategory} />}
+        />
         <Route path='/all' element={<All />} />
         <Route path='/travel' element={<Travel />} />
         <Route path='/food' element={<Food />} />

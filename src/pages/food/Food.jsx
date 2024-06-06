@@ -8,6 +8,9 @@ import { useGetData } from '../../components/hooks/useGetData';
 import CategoryCards from "../../components/categorycards/CategoryCards.jsx"
 import Navbar from '../../components/navbar/Navbar.jsx'
 import Footer from '../../components/footer/Footer.jsx'
+import ReactGA from 'react-ga4';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const foodData = [
     {
@@ -22,9 +25,12 @@ const foodData = [
   ]
 
 const Food = () => {
+  const location = useLocation();
   const { data: food, isLoading: foodloading, fooderror } = useGetData('/posts?perPage=7&category=3&minimal=true');
 
-
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });
+  }, [location]);
   return (
     <div className='travels'>
       <Navbar />

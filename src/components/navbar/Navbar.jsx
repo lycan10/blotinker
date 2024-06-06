@@ -23,21 +23,19 @@ import { AiOutlineClose } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useCreate } from '../hooks/useCreate';
 import Spinner from 'react-bootstrap/Spinner';
+import { useGetUserInfo } from '../hooks/useGetUserInfo';
 
 const date = new Date()
 
 const Navbar = () => {
 
     const [show, setShow] = useState(false);
-
+    const { token }= useGetUserInfo();
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate()
-
     const [active, setActive] = useState(false);
-
     const { mutate, isLoading, isError, error } = useCreate();
     const [email, setEmail] = useState('');
 
@@ -136,7 +134,7 @@ const Navbar = () => {
             <div className={`navbar-dropdown ${isOpen ? 'is-active' : ''}`}>
                 <div className="navbar-main-container">
                    <div className="navbar-header">
-                    <h3 onClick={navigateToCreatePost}>LOGIN</h3>
+                    <h3 onClick={navigateToCreatePost}>{token ? "Dashboard" : "LOGIN"}</h3>
                     <h1 onClick={navigateToHome}>BLOTINKER</h1>
                     <h3 onClick={toggleDropdown}>CLOSE</h3>
                    </div>

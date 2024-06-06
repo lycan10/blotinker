@@ -43,10 +43,10 @@ const navigateToHealth = () => {
           <CategoriesCardHome title="Travel & Adventure" goto={navigateToTravel} data={travel && travel?.posts?.length > 0 ? travel?.posts: []}/>
         </div>
         <div className="category-content-container">
-        <CategoriesCardHome2 title="Health & Wellness" goto={navigateToHealth} data={health && health?.posts?.length > 0 ? health?.posts: []}/>
+          <CategoriesCardHome2 title="Health & Wellness" goto={navigateToHealth} data={health && health?.posts?.length > 0 ? health?.posts: []}/>
         </div>
         <div className="category-content-container">
-        <CategoriesCardHome title="Food & Recipes" goto={navigateToFood} data={food && food?.posts?.length > 0 ? food?.posts: []}/>
+          <CategoriesCardHome title="Food & Recipes" goto={navigateToFood} data={food && food?.posts?.length > 0 ? food?.posts: []}/>
         </div>
       </div>
     </div>

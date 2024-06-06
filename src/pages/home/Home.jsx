@@ -29,9 +29,11 @@ import { useCreate } from '../../components/hooks/useCreate';
 import { dateFormat } from '../../util/dateFormat';
 import { Link, useHistory } from 'react-router-dom';
 import CategoriesHome from '../categories/CategoriesHome'
+import { useLocation } from 'react-router-dom';
+import ReactGA from 'react-ga4';
 
 const Home = () => {
-
+    const location = useLocation();
     const navigate = useNavigate();
     const [email, setEmail]=useState('');
     const { mutate, isLoading, isError } = useCreate();
@@ -40,6 +42,10 @@ const Home = () => {
     const { data: featured, isLoading: featuredloading, featurederror } = useGetData('/posts?perPage=1&category=7&minimal=true');
     const { data: popular, isLoading: popularloading, popularerror } = useGetData('/posts?perPage=3&status=published&popular=true&minimal=true');
     
+    useEffect(() => {
+        ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });
+    }, [location]);
+
     const handleSubmit = () => {
         if (email) {
           mutate(

@@ -17,7 +17,7 @@ const Login = () => {
 
   useEffect(() => {
     if (token) {
-      navigate('/createpost', { replace: true });
+      navigate('/admin', { replace: true });
     }
   }, [token, navigate]);
 
@@ -43,7 +43,7 @@ const Login = () => {
           authState: res,
         })) {
             toast.success('Login Success');
-          navigate('/createpost');
+          navigate('/admin');
         } else {
           setErrorMsg('Unable to login due to an unknown error');
           toast.error('Unable to login due to an unknown error');

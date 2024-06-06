@@ -13,7 +13,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 import { FaFacebookF, FaRegCommentAlt  } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -40,8 +40,10 @@ import { useQueryClient } from "react-query";
 import {Loader} from '../../util/loader';
 import { Comments } from '../../components/comment/comments';
 import { useGetUserInfo } from "../../components/hooks/useGetUserInfo";
+import ReactGA from 'react-ga4';
 
 const Posts = () => {
+  const location= useLocation()
     const { slug } = useParams();
     const { token }= useGetUserInfo();
     const { data, isLoading, error } = useGetData('/posts/'+slug);
@@ -57,6 +59,9 @@ const Posts = () => {
         setText(prevText => prevText + selectedEmoji);
         setShowPicker(false);
     };
+    useEffect(() => {
+      ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });
+    }, [location]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -115,7 +120,7 @@ const Posts = () => {
                         <span><li></li></span>
                         <li>{data.read_time} read</li>
                         {token && (
-                          <Link to={`/createpost?post=${data.slug}`}>
+                          <Link to={`/admin/createpost?post=${data.slug}`}>
                             <li>Edit Post</li>
                           </Link>
                         )}

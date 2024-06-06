@@ -23,19 +23,25 @@ import { IoMdLogOut } from "react-icons/io";
 import { Categories } from 'emoji-picker-react';
 import { useGetData } from '../../components/hooks/useGetData';
 import { useQueryClient } from "react-query";
-import { useGetCategory, QUERY_KEY_FOR_CATEGORY} from '../../components/hooks/useGetCategory';
+import { useGetCategory, QUERY_KEY_FOR_CATEGORY } from '../../components/hooks/useGetCategory';
 import CreateCategory from '../../components/categorycards/createCategory';
 import { FaSpinner } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { useSignOut } from 'react-auth-kit';
+import Sidebar from '../adminpage/components/sidebar';
+import Header from '../adminpage/components/header';
 
 const CreatePost = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const postFromParams = searchParams.get('post');
   const [showOffcanvas, setShowOffcanvas] = useState(false);
-  const toggleOffcanvas = () => setShowOffcanvas(!showOffcanvas);
-  const { userInfo }= useGetUserInfo();
+  const toggleOffcanvas = (event) => {
+    event.preventDefault()
+    setShowOffcanvas(!showOffcanvas);
+  }
+
+  const { userInfo } = useGetUserInfo();
   const signOut = useSignOut
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
@@ -46,17 +52,19 @@ const CreatePost = () => {
   const { mutate: savePost, isLoading: saving, isError: isSavingError, error: savingError } = useSavePost();
   const { mutate: uploadFile, isLoading, isError, error } = useUploadFile();
   const fileInputRef = useRef(null);
-  const { data:postData, isLoading: postLoading, error: postError } = useGetData('/posts/'+postFromParams);
-  const { data:categoriesData, isLoading: catLoading, error:catError } = useGetCategory({});
+  const { data: postData, isLoading: postLoading, error: postError } = useGetData('/posts/' + postFromParams);
+  const { data: categoriesData, isLoading: catLoading, error: catError } = useGetCategory({});
   const queryClient = useQueryClient();
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = () => setShowModal(true);
+  const [viewMode, setViewMode] = useState("dashboard");
   const handleCloseModal = () => {
     setShowModal(false);
     queryClient.invalidateQueries({
       queryKey: [QUERY_KEY_FOR_CATEGORY],
-  });
+    });
   };
+
 
   useEffect(() => {
     if (postData) {
@@ -79,7 +87,7 @@ const CreatePost = () => {
     toolbarSticky: true,
   };
 
-  const handleSavePost = ({status}) => {
+  const handleSavePost = ({ status }) => {
     if (title && content && featuredImage) {
       savePost(
         { postId, title, content, featuredImage, postCategories, status },
@@ -88,22 +96,22 @@ const CreatePost = () => {
             setPostId(data.post.id);
             setSearchParams({ post: data.post.slug });
             setPost(data.post);
-            toast.success(status == 'draft' ?'Saved to draft': 'Published');
+            toast.success(status == 'draft' ? 'Saved to draft' : 'Published');
           },
-          onError:(err)=>{
+          onError: (err) => {
             toast.error('unable to save post');
           }
         }
       );
-    }else{
+    } else {
       toast.error('Please ensure that title, content and featured image are set');
     }
   };
 
- /* useEffect(() => {
-    const interval = setInterval(() => handleSavePost(post && post?.status ? {status: post?.status}: {status:'draft'}), 60000);
-    return () => clearInterval(interval);
-  }, [content, postId, featuredImage]);*/
+  /* useEffect(() => {
+     const interval = setInterval(() => handleSavePost(post && post?.status ? {status: post?.status}: {status:'draft'}), 60000);
+     return () => clearInterval(interval);
+   }, [content, postId, featuredImage]);*/
 
   const handleDivClick = () => {
     fileInputRef.current.click();
@@ -119,7 +127,7 @@ const CreatePost = () => {
             const fileUrl = data.url;
             setFeaturedImage(fileUrl);
           },
-          onError:(err)=>{
+          onError: (err) => {
             toast.error('upload failed');
           }
         }
@@ -138,6 +146,17 @@ const CreatePost = () => {
         prev.filter((categoryId) => categoryId !== id)
       );
     }
+  };
+
+
+
+  const handleViewChange = (mode) => {
+    setViewMode(mode);
+    setShowOffcanvas(false);
+  };
+
+  const navigateToHome = () => {
+    window.location.href = "/";
   };
 
   const popover = (
@@ -163,141 +182,156 @@ const CreatePost = () => {
 
 
   return (
-    <div className='createpost'>
-      <div className="createpost-container">
-        <div className="createpost-navbar">
-          {/* <div className="createpost-navbar-left">
-            <IoIosHome className='createpost-navbar-icon' onClick={() => navigate('/')} />
-          </div> */}
-          <div className="createpost-navbar-left">
-            <h1>Create post</h1>
-          </div>
-          <div role="button" className="createpost-navbar-left"  onClick={() => handleSavePost({status: 'draft'})}>
-            <p>Save draft</p>
-            <div className="createpost-view"></div>
-            <div className="createpost-publish" role="button" onClick={() => handleSavePost({status: 'published'})}>
-              <p>Publish</p>
-            </div>
-            <div className="createpost-offcanvas-img" onClick={toggleOffcanvas}>
-              <BsReverseLayoutSidebarReverse className='canvas-icon' />
-            </div>
-            {/* <div role="button" className="ps-4" onClick={()=>signOut()}>
+    <div className='adminpage'>
+      <div className="adminpage-container">
+        <Sidebar
+          showOffcanvas={showOffcanvas}
+          handleViewChange={handleViewChange}
+          navigateToHome={navigateToHome}
+        />
+        <div className="adminpage-right">
+          <Header toggleOffcanvas={toggleOffcanvas} />
+          <div className="adminpage-right-content-container">
+            <div className='createpost'>
+              <div className="createpost-container">
+                <div className="createpost-navbar">
+                  {/* <div className="createpost-navbar-left">
+                    <IoIosHome className='createpost-navbar-icon' onClick={() => navigate('/')} />
+                  </div> */}
+                  <div className="createpost-navbar-left">
+                    <h1>Create post</h1>
+                  </div>
+                  <div className="createpost-navbar-left">
+                  <div role="button" className="createpost-navbar-left" onClick={() => handleSavePost({ status: 'draft' })}>
+                    <p>Save draft</p>
+                    </div>
+                    <div className="createpost-publish" role="button" onClick={() => handleSavePost({ status: 'published' })}>
+                      <p>Publish</p>
+                    </div>
+                    <div className="createpost-offcanvas-img" onClick={toggleOffcanvas}>
+                      <BsReverseLayoutSidebarReverse className='canvas-icon' />
+                    </div>
+                    {/* <div role="button" className="ps-4" onClick={()=>signOut()}>
               <p className='text-danger'>Logout</p>
             </div> */}
-            
-          </div>
-        </div>
-        <div className="createpost-body-container">
-          <div className="createpost-body-input-container">
-            <div className="createpost-body-input-title">
-              <input
-                type="text"
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder='Add title'
-                value={title}
-              />
-            </div>
-            <div className="createpost-body-input">
-              <JoditEditor
-                value={content}
-                config={config}
-                onBlur={newContent => setContent(newContent)}
-                onChange={newContent => {}}
-              />
-            </div>
-            {/* <div className="createpost-add-new-post">
+
+                  </div>
+                </div>
+                <div className="createpost-body-container">
+                  <div className="createpost-body-input-container">
+                    <div className="createpost-body-input-title">
+                      <input
+                        type="text"
+                        onChange={(e) => setTitle(e.target.value)}
+                        placeholder='Add title'
+                        value={title}
+                      />
+                    </div>
+                    <div className="createpost-body-input">
+                      <JoditEditor
+                        value={content}
+                        config={config}
+                        onBlur={newContent => setContent(newContent)}
+                        onChange={newContent => { }}
+                      />
+                    </div>
+                    {/* <div className="createpost-add-new-post">
               <div className="createpost-new-button">
                 <IoAdd className='createpost-new-button-icon' />
               </div>
             </div> */}
-          </div>
-          <div className={`createpost-offcanvas ${showOffcanvas ? 'show' : ''}`}>
-            <div className="offcanvas-container">
-              <div className="offcanvas-top">
-                <h3>{ saving ? <><FaSpinner className="spinner-icon" style={{fontSize:'16px'}} /> Saving post</> : "Post"}</h3>
-                <IoCloseOutline className='offcanvas-icon' onClick={toggleOffcanvas} />
-              </div>
-              <div className="offcanvas-title-container">
-                <div className="offcanvas-title">
-                  <GiQuillInk className='offcanvas-icon' />
-                  <h3>{title ? title : "No Title"}</h3>
-                </div>
-                {post && <p>Last edited {timeAgo(post.updatedAt)}.</p>}
-              </div>
-              <div className="offcanvas-summary">
-                <h3>Content</h3>
-                <div
-                  className="offcanvas-summary-image"
-                  onClick={handleDivClick}
-                  style={{
-                    cursor: 'pointer',
-                    backgroundImage: `url(${BASE_URL+'/uploads/'+featuredImage})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    width: '150px',
-                    height: '150px',
-                  }}
-                >
-                  {!featuredImage ? 'Set featured image' : isLoading ? <><FaSpinner className="spinner-icon" style={{fontSize:'16px'}} /> Uploading</> : <p>Set featured image</p>}
-                </div>
-                <input
-                  type="file"
-                  ref={fileInputRef}
-                  onChange={handleFileChange}
-                  style={{ display: 'none' }}
-                />
-                {isError && <p className='fs-6 text-danger'>Error: {error.message}</p>}
-                <div className="offcanvas-summary-body-container">
-                  <div className="offcanvas-summary-body">
-                    <p>Visibility</p>
-                    <p><span>Public</span></p>
                   </div>
-                  <div className="offcanvas-summary-body">
-                    <p>Publish</p>
-                    <p><span>Immediately</span></p>
-                  </div>
-                  <div className="offcanvas-summary-body">
-                    <OverlayTrigger trigger="click" placement="top" overlay={popover}>
-                      <button class="btn btn-sm btn-light btn-block">Category <BsChevronDown /></button>
-                    </OverlayTrigger>
-                  </div>
-                    <div className='border rounded p-2'>
-                    <button class="btn btn-sm btn-link" onClick={handleShowModal}>New Category</button>
-                      { 
-                        postCategories.map((categoryId) => (
-                        <div key={categoryId}>
-                         <h6 style={{fontSize:'12px'}}> {
-                            categoriesData?.find((category) => category.id === categoryId)
-                              ?.name
-                          }
-                          </h6>
+                  <div className={`createpost-offcanvas ${showOffcanvas ? 'show' : ''}`}>
+                    <div className="offcanvas-container">
+                      <div className="offcanvas-top">
+                        <h3>{saving ? <><FaSpinner className="spinner-icon" style={{ fontSize: '16px' }} /> Saving post</> : "Post"}</h3>
+                        <IoCloseOutline className='offcanvas-icon' onClick={toggleOffcanvas} />
+                      </div>
+                      <div className="offcanvas-title-container">
+                        <div className="offcanvas-title">
+                          <GiQuillInk className='offcanvas-icon' />
+                          <h3>{title ? title : "No Title"}</h3>
+                        </div>
+                        {post && <p>Last edited {timeAgo(post.updatedAt)}.</p>}
+                      </div>
+                      <div className="offcanvas-summary">
+                        <h3>Content</h3>
+                        <div
+                          className="offcanvas-summary-image"
+                          onClick={handleDivClick}
+                          style={{
+                            cursor: 'pointer',
+                            backgroundImage: `url(${BASE_URL + '/uploads/' + featuredImage})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            width: '150px',
+                            height: '150px',
+                          }}
+                        >
+                          {!featuredImage ? 'Set featured image' : isLoading ? <><FaSpinner className="spinner-icon" style={{ fontSize: '16px' }} /> Uploading</> : <p>Set featured image</p>}
+                        </div>
+                        <input
+                          type="file"
+                          ref={fileInputRef}
+                          onChange={handleFileChange}
+                          style={{ display: 'none' }}
+                        />
+                        {isError && <p className='fs-6 text-danger'>Error: {error.message}</p>}
+                        <div className="offcanvas-summary-body-container">
+                          <div className="offcanvas-summary-body">
+                            <p>Visibility</p>
+                            <p><span>Public</span></p>
                           </div>
-                      ))}
+                          <div className="offcanvas-summary-body">
+                            <p>Publish</p>
+                            <p><span>Immediately</span></p>
+                          </div>
+                          <div className="offcanvas-summary-body">
+                            <OverlayTrigger trigger="click" placement="top" overlay={popover}>
+                              <button class="btn btn-sm btn-light btn-block">Category <BsChevronDown /></button>
+                            </OverlayTrigger>
+                          </div>
+                          <div className='border rounded p-2'>
+                            <button class="btn btn-sm btn-link" onClick={handleShowModal}>New Category</button>
+                            {
+                              postCategories.map((categoryId) => (
+                                <div key={categoryId}>
+                                  <h6 style={{ fontSize: '12px' }}> {
+                                    categoriesData?.find((category) => category.id === categoryId)
+                                      ?.name
+                                  }
+                                  </h6>
+                                </div>
+                              ))}
+                          </div>
+
+                          <div className="offcanvas-summary-body">
+                            <p>URL</p>
+                            {post && <p><Link to={'/posts/' + post?.slug}>{post?.slug}</Link></p>}
+                          </div>
+                          <div className="offcanvas-summary-author">
+                            <p>AUTHOR </p>
+                            <p>{userInfo.name}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="offcanvas-preview-container">
+                        {post &&
+                          <Link to={'/posts/' + post?.slug} className="offcanvas-preview-button text-decoration-none text-dark">
+                            <IoEyeSharp className='offcanvas-preview-icon text-dark' />
+                            <p className='text-dark'>Preview</p>
+                          </Link>
+                        }
+                      </div>
                     </div>
-                    
-                  <div className="offcanvas-summary-body">
-                    <p>URL</p>
-                    {post && <p><Link to={'/posts/'+post?.slug}>{post?.slug}</Link></p>}
-                  </div>
-                  <div className="offcanvas-summary-author">
-                    <p>AUTHOR </p>
-                    <p>{userInfo.name}</p>
                   </div>
                 </div>
               </div>
-              <div className="offcanvas-preview-container">
-                { post &&
-                  <Link to={'/posts/'+post?.slug} className="offcanvas-preview-button text-decoration-none text-dark">
-                    <IoEyeSharp className='offcanvas-preview-icon text-dark' />
-                    <p className='text-dark'>Preview</p>
-                  </Link>
-                }
-              </div>
+              <CreateCategory showModal={showModal} handleClose={handleCloseModal} />
             </div>
           </div>
         </div>
       </div>
-      <CreateCategory showModal={showModal} handleClose={handleCloseModal} />
     </div>
   );
 };
