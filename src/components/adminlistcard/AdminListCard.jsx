@@ -4,9 +4,19 @@ import "./adminlistcard.css"
 import { RiEditFill } from "react-icons/ri";
 import { MdDelete } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import { useDelete } from '../hooks/useDelete';
+import { QUERY_KEY_FOR_DATA } from "../hooks/useGetData";
 
 
-const AdminListCard = ({img, title, period, description, slug }) => {
+const AdminListCard = ({id, img, title, period, description, slug }) => {
+
+    const deleteEndPointUrl="posts";
+
+  const { removeData } = useDelete({
+    queryKey: QUERY_KEY_FOR_DATA,
+    deleteEndPointUrl,
+  });
+
   return (
     <div className='adminlistcard'>
         <div className="adminlistcard-image">
@@ -27,7 +37,7 @@ const AdminListCard = ({img, title, period, description, slug }) => {
                         <p>Edit Post</p>
                     </Link>
                 </div>
-                <div className="adminlistcard-content-delete">
+                <div className="adminlistcard-content-delete" onClick={()=>removeData(id)}>
                     <MdDelete className='listcard-icon'/>
                     <p>Delete</p>
                 </div>

@@ -50,6 +50,7 @@ const PostByCategory = () => {
                 { data && data.posts.length > 0 && data.posts.map((item, i) => (
                   <div key={i}>
                     <AdminListCard
+                      id={item.id}
                       img={item.imageUrl}
                       title={item.title}
                       period={dateFormat(data?.createdAt)}

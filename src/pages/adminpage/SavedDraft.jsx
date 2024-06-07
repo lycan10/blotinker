@@ -10,6 +10,7 @@ const SavedDraft = () => {
   const [viewMode, setViewMode] = useState("dashboard");
   const [showOffcanvas, setShowOffcanvas] = useState(false);
   const { data, isLoading, error } = useGetData('/posts?status=draft&perPage=15');
+
   const toggleOffcanvas = (event) => {
     event.preventDefault();
     setShowOffcanvas(!showOffcanvas);
@@ -45,6 +46,7 @@ const SavedDraft = () => {
                 {data && data.posts.length > 0 && data.posts.map((item, i) => (
                   <div key={i}>
                   <AdminListCard
+                    id={item.id}
                     img={item.imageUrl}
                     title={item.title}
                     period={dateFormat(data?.createdAt)}
