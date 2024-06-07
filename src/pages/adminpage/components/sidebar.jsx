@@ -62,7 +62,7 @@ const Sidebar = ({ showOffcanvas, handleViewChange, navigateToHome }) => {
               </Accordion.Header>
               <Accordion.Body>
               {data && data?.map((category) => (
-                <div className="adminpage-categories-accordion" onClick={() => handleViewChange("featuredpost")}>
+                <div className="adminpage-categories-accordion">
                   <Link className="text-decoration-none" to={`/admin/category?id=${category.id}`}>{category.name}</Link>
                 </div>
               ))}
