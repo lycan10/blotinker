@@ -10,7 +10,7 @@ const AdminPage = () => {
   const signOut = useSignOut
   const [viewMode, setViewMode] = useState("dashboard");
   const [isOpen, setIsOpen] = useState(false);
-  const [showOffcanvas, setShowOffcanvas] = useState(false);
+  const [showOffcanvas, setShowOffcanvas] = useState(true);
   const toggleOffcanvas = () => setShowOffcanvas(!showOffcanvas);
 
   const handleViewChange = (mode) => {
@@ -22,25 +22,28 @@ const AdminPage = () => {
     const newUrl = "/"
     window.location.href = newUrl
     setIsOpen(false)
-}
-const navigateToCreatePost = () => {
-  const newUrl = "/createpost"
+  }
+  const navigateToCreatePost = () => {
+    const newUrl = "/createpost"
     window.location.href = newUrl
     setIsOpen(false)
-};
+  };
 
   return (
-    <div className='adminpage'> 
+    <div className='adminpage'>
       <div className="adminpage-container">
-      <Sidebar
-          showOffcanvas={showOffcanvas}
-          handleViewChange={handleViewChange}
-          navigateToHome={navigateToHome}
-        />
+        {
+          showOffcanvas &&
+          <Sidebar
+            showOffcanvas={showOffcanvas}
+            handleViewChange={handleViewChange}
+            navigateToHome={navigateToHome}
+          />
+        }
         <div className="adminpage-right">
-        <Header toggleOffcanvas={toggleOffcanvas} />
+          <Header toggleOffcanvas={toggleOffcanvas} />
           <div className="adminpage-right-content-container">
-             <Dashboard />
+            <Dashboard />
           </div>
         </div>
       </div>

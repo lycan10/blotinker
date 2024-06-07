@@ -35,9 +35,8 @@ const CreatePost = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const postFromParams = searchParams.get('post');
-  const [showOffcanvas, setShowOffcanvas] = useState(false);
-  const toggleOffcanvas = (event) => {
-    event.preventDefault()
+  const [showOffcanvas, setShowOffcanvas] = useState(true);
+  const toggleOffcanvas = () => {
     setShowOffcanvas(!showOffcanvas);
   }
 
@@ -184,11 +183,14 @@ const CreatePost = () => {
   return (
     <div className='adminpage'>
       <div className="adminpage-container">
-        <Sidebar
-          showOffcanvas={showOffcanvas}
-          handleViewChange={handleViewChange}
-          navigateToHome={navigateToHome}
-        />
+        {
+          showOffcanvas &&
+          <Sidebar
+            showOffcanvas={showOffcanvas}
+            handleViewChange={handleViewChange}
+            navigateToHome={navigateToHome}
+          />
+        }
         <div className="adminpage-right">
           <Header toggleOffcanvas={toggleOffcanvas} />
           <div className="adminpage-right-content-container">
@@ -202,8 +204,8 @@ const CreatePost = () => {
                     <h1>Create post</h1>
                   </div>
                   <div className="createpost-navbar-left">
-                  <div role="button" className="createpost-navbar-left" onClick={() => handleSavePost({ status: 'draft' })}>
-                    <p>Save draft</p>
+                    <div role="button" className="createpost-navbar-left" onClick={() => handleSavePost({ status: 'draft' })}>
+                      <p>Save draft</p>
                     </div>
                     <div className="createpost-publish" role="button" onClick={() => handleSavePost({ status: 'published' })}>
                       <p>Publish</p>

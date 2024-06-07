@@ -11,8 +11,8 @@ const PostByCategory = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const postFromParams = searchParams.get('id');
   const [viewMode, setViewMode] = useState("dashboard");
-  const [showOffcanvas, setShowOffcanvas] = useState(false);
-  const { data: catData, isLoading:loading, error: isError } = useGetData(`/category/${postFromParams}`);
+  const [showOffcanvas, setShowOffcanvas] = useState(true);
+  const { data: catData, isLoading: loading, error: isError } = useGetData(`/category/${postFromParams}`);
   const { data, isLoading, error } = useGetData(`/posts?category=${postFromParams}perPage=15`);
 
   const toggleOffcanvas = (event) => {
@@ -32,11 +32,14 @@ const PostByCategory = () => {
   return (
     <div className='adminpage'>
       <div className="adminpage-container">
-        <Sidebar
-          showOffcanvas={showOffcanvas}
-          handleViewChange={handleViewChange}
-          navigateToHome={navigateToHome}
-        />
+        {
+          showOffcanvas &&
+          <Sidebar
+            showOffcanvas={showOffcanvas}
+            handleViewChange={handleViewChange}
+            navigateToHome={navigateToHome}
+          />
+        }
         <div className="adminpage-right">
           <Header toggleOffcanvas={toggleOffcanvas} />
           <div className="admin-page-right-posts-container">
@@ -46,19 +49,19 @@ const PostByCategory = () => {
             <div className="admin-page-right-posts-content-container">
               <div className="admin-page-right-posts-list-container">
                 <div className="admin-page-right-posts-list">
-    
-                { data && data.posts.length > 0 && data.posts.map((item, i) => (
-                  <div key={i}>
-                    <AdminListCard
-                      id={item.id}
-                      img={item.imageUrl}
-                      title={item.title}
-                      period={dateFormat(data?.createdAt)}
-                      description={item.excerpt}
-                      slug={item.slug}
-                    />
-                  </div>
-                ))}
+
+                  {data && data.posts.length > 0 && data.posts.map((item, i) => (
+                    <div key={i}>
+                      <AdminListCard
+                        id={item.id}
+                        img={item.imageUrl}
+                        title={item.title}
+                        period={dateFormat(data?.createdAt)}
+                        description={item.excerpt}
+                        slug={item.slug}
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

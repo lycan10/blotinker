@@ -8,7 +8,7 @@ import { dateFormat } from '../../util/dateFormat';
 
 const SavedDraft = () => {
   const [viewMode, setViewMode] = useState("dashboard");
-  const [showOffcanvas, setShowOffcanvas] = useState(false);
+  const [showOffcanvas, setShowOffcanvas] = useState(true);
   const { data, isLoading, error } = useGetData('/posts?status=draft&perPage=15');
 
   const toggleOffcanvas = (event) => {
@@ -28,11 +28,14 @@ const SavedDraft = () => {
   return (
     <div className='adminpage'>
       <div className="adminpage-container">
-        <Sidebar
-          showOffcanvas={showOffcanvas}
-          handleViewChange={handleViewChange}
-          navigateToHome={navigateToHome}
-        />
+        {
+          showOffcanvas &&
+          <Sidebar
+            showOffcanvas={showOffcanvas}
+            handleViewChange={handleViewChange}
+            navigateToHome={navigateToHome}
+          />
+        }
         <div className="adminpage-right">
           <Header toggleOffcanvas={toggleOffcanvas} />
           <div className="admin-page-right-posts-container">
@@ -42,19 +45,19 @@ const SavedDraft = () => {
             <div className="admin-page-right-posts-content-container">
               <div className="admin-page-right-posts-list-container">
                 <div className="admin-page-right-posts-list">
-    
-                {data && data.posts.length > 0 && data.posts.map((item, i) => (
-                  <div key={i}>
-                  <AdminListCard
-                    id={item.id}
-                    img={item.imageUrl}
-                    title={item.title}
-                    period={dateFormat(data?.createdAt)}
-                    description={item.excerpt}
-                    slug={item.slug}
-                  />
-                  </div>
-                ))}
+
+                  {data && data.posts.length > 0 && data.posts.map((item, i) => (
+                    <div key={i}>
+                      <AdminListCard
+                        id={item.id}
+                        img={item.imageUrl}
+                        title={item.title}
+                        period={dateFormat(data?.createdAt)}
+                        description={item.excerpt}
+                        slug={item.slug}
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
