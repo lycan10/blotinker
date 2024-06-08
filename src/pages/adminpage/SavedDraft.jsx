@@ -52,7 +52,7 @@ const SavedDraft = () => {
                         id={item.id}
                         img={item.imageUrl}
                         title={item.title}
-                        period={dateFormat(data?.createdAt)}
+                        period={dateFormat(item?.createdAt)}
                         description={item.excerpt}
                         slug={item.slug}
                       />
