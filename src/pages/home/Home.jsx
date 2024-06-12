@@ -100,7 +100,7 @@ const Home = () => {
                         postDate={dateFormat(createdAt)}
                         postTime={views}
                         slug={slug}
-                        height={i === 0 ? 300: i===1 ? 400: i===2 ? 280 : 320}
+                        height={i === 0 ? 300: i===1 ? 370: i===2 ? 280 : 320}
                     />
                 ))
             }

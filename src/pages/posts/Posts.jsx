@@ -128,7 +128,7 @@ const Posts = () => {
                     </div>
                     <div className="post-header">
                       <h1 className="text-uppercase">{data.title}</h1>
-                      <p>{data.excerpt}</p>
+                      {/* <span>{data.excerpt}</span> */}
                       <div className="posts-header-img">
                         <img src={data.imageUrl} alt={data.title} />
                       </div>

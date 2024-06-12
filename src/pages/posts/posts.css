@@ -107,10 +107,18 @@ p{
 }
 .post-body p{
     font-family: "inter" !important;
-    font-size: 16px !important;
-    line-height: 2rem;
-    font-weight: 300;
+    font-size: small !important;
+    line-height: 1.5rem;
+    font-weight: normal;
     margin-bottom: 1.5rem !important;
+}
+.post-body span{
+    font-family: "inter" !important;
+}
+
+.post-body img{
+    width: 100%;
+ 
 }
 
 .post-socials-container{
