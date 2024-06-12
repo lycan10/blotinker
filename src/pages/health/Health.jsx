@@ -25,7 +25,7 @@ const HealthData = [
 
 const Health = () => {
   const location = useLocation();
-  const { data: health, isLoading: healthloading, healtherror } = useGetData('/posts?perPage=15&category=2&minimal=true');
+  const { data: health, isLoading: healthloading, healtherror } = useGetData('/posts?perPage=20&category=2&minimal=true');
 
   useEffect(() => {
     ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });

@@ -116,12 +116,12 @@ const Categories = ({ title, data }) => {
           <div className="category-menu-containe-list-container">
           <div className="category-menu-container-list">
           {
-            data.length > 0 && data.slice(6).map((item, i)=>(
-            <ListCard
-              img={item.imageUrl}
-              title={item.title}
-              description={item.excerpt}
-            />
+            data.length > 0 && data.slice(7).map((item, i)=>(
+              <ListCard
+                img={item.imageUrl}
+                title={item.title}
+                description={item.excerpt}
+              />
             ))
           }
           </div>

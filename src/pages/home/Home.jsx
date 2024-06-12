@@ -37,7 +37,7 @@ const Home = () => {
     const navigate = useNavigate();
     const [email, setEmail]=useState('');
     const { mutate, isLoading, isError } = useCreate();
-    const { data: latest, isLoading: loading } = useGetData('/posts?perPage=7&status=published&minimal=true');
+    const { data: latest, isLoading: loading } = useGetData('/posts?perPage=4&status=published&minimal=true');
     const { data: storyOftheWeek, isLoading: storyOftheWeekloading, storyOftheWeekerror } = useGetData('/posts?perPage=1&category=8&minimal=true');
     const { data: featured, isLoading: featuredloading, featurederror } = useGetData('/posts?perPage=1&category=7&minimal=true');
     const { data: popular, isLoading: popularloading, popularerror } = useGetData('/posts?perPage=3&status=published&popular=true&minimal=true');
@@ -126,7 +126,7 @@ const Home = () => {
             </div>
         </div>
         <div className="home-sotw">
-            <div className="home-sotw-image">
+            <div className="home-sotw-image" style={{backgroundImage:`url(${storyOftheWeek && storyOftheWeek?.posts.length > 0 && storyOftheWeek?.posts[0].imageUrl})`}}>
                 <div className="home-sotw-div"></div>
                 <div className=" home-sotw-content">
                     <p>STORY OF THE WEEK</p>

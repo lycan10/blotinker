@@ -24,7 +24,7 @@ const travelData = [
 
 const Travel = () => {
   const location = useLocation();
-  const { data: travel, isLoading: loading, error } = useGetData('/posts?perPage=15&category=1&minimal=true');
+  const { data: travel, isLoading: loading, error } = useGetData('/posts?perPage=20&category=1&minimal=true');
 
   useEffect(() => {
     ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });

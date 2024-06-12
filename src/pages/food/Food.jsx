@@ -26,7 +26,7 @@ const foodData = [
 
 const Food = () => {
   const location = useLocation();
-  const { data: food, isLoading: foodloading, fooderror } = useGetData('/posts?perPage=7&category=3&minimal=true');
+  const { data: food, isLoading: foodloading, fooderror } = useGetData('/posts?perPage=20&category=3&minimal=true');
 
   useEffect(() => {
     ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });
