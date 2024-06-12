@@ -121,7 +121,7 @@ const Posts = () => {
                         <li>{data.read_time} read</li>
                         {token && (
                           <Link to={`/admin/createpost?post=${data.slug}`}>
-                            <li>Edit Post</li>
+                            <li></li>
                           </Link>
                         )}
                       </ul>

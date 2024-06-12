@@ -1,5 +1,5 @@
 .home-container {
-    padding-top: 20px; /* Adjust the value according to the navbar height */
+    padding-top: 3.5rem; /* Adjust the value according to the navbar height */
 }
 .home-featured-story{
     display: grid;
@@ -21,7 +21,7 @@
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     
 }
@@ -36,19 +36,21 @@
     font-size: 24px;
     line-height: 2rem;
     font-weight: 200;
-    margin: 10rem 0 8rem;
+    margin: 0rem 0 7rem;
+    color: var(--color);
 }
 .home-featured-story-title{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0rem 4rem;
 }
 .home-featured-story-title h1{
     font-family: var(--font-family);
-    font-size: 55px;
-    line-height: 4rem;
-    max-width: 400px;
+    font-size: 52px;
+    line-height: 4.5rem;
+    max-width: 100%;
     text-align: center;
     cursor: pointer;
 }
@@ -64,14 +66,14 @@
     justify-content: flex-start;
     align-items: center;
     padding: 0;
-    margin: 0 0 2rem;
+    margin: 0 0 4rem;
 }
 .home-featured-story-title li{
     text-decoration: none;
     list-style: none;
     padding-right: 1.5rem;
     font-family: "inter";
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 200;
 }
 .home-featured-story-title li:last-child{
@@ -93,9 +95,9 @@ li::marker {
   }
   .home-latest-container h3{
     font-family: var(--font-family);
-    font-size: 27px;
-    font-weight: 200;
-    margin: 0 0.5rem 3rem;
+    font-size: 23px;
+    font-weight: 700;
+    margin: 0 0.5rem 2.5rem;
     letter-spacing: 0px;
   }
   .home-latest{
@@ -133,7 +135,7 @@ li::marker {
     font-family: var(--font-family);
     font-size: 24px;
     margin-right: 0px;
-    color: white;
+    color: var(--color);
     margin-bottom: 4rem;
 }
 .home-sotw-div{
@@ -153,6 +155,7 @@ position: absolute;
     max-width: 850px;
     text-align: center;
     cursor: pointer;
+    line-height: 4.5rem;
 }
 .home-sotw-title h1:hover{
     color: var(--color);
@@ -183,9 +186,9 @@ position: absolute;
 }
 .home-popular h3{
     font-family: var(--font-family);
-    font-size: 27px;
-    font-weight: 200;
-    margin: 0 0.5rem 3rem;
+    font-size: 23px;
+    font-weight: 700;
+    margin: 0 0.5rem 2.5rem;
     letter-spacing: 1px;
 }
 .home-popular-container{
@@ -301,7 +304,7 @@ position: absolute;
 
 @media screen and (max-width: 1200px) {
     .home-container {
-        padding-top: 20px; /* Adjust the value according to the navbar height */
+        padding-top: 2rem; /* Adjust the value according to the navbar height */
     }
     .home-featured-story{
         display: grid;
@@ -333,6 +336,7 @@ position: absolute;
         line-height: 2rem;
         font-weight: 200;
         margin: 7rem 0 6rem;
+        color: var(--color);
     }
     .home-featured-story-title{
         display: flex;
@@ -387,7 +391,6 @@ position: absolute;
       .home-latest-container h3{
         font-family: var(--font-family);
         font-size: 27px;
-        font-weight: 400;
         margin: 0rem 0.5rem 1.5rem;
         letter-spacing: 1px;
       }
@@ -426,7 +429,6 @@ position: absolute;
         font-family: var(--font-family);
         font-size: 19px;
         margin-right: 0px;
-        color: white;
         margin-bottom: 3.5rem;
     }
     .home-sotw-div{
@@ -440,10 +442,11 @@ position: absolute;
     }
     .home-sotw-title h1{
         font-family: var(--font-family);
-        font-size: 43px;
+        font-size: 49px;
         margin-right: 0px;
         color: white;
         max-width: 750px;
+        line-height: 4rem;
         text-align: center;
         cursor: pointer;
     }
@@ -477,7 +480,6 @@ position: absolute;
     .home-popular h3{
         font-family: var(--font-family);
         font-size: 27px;
-        font-weight: 300;
         margin: 0rem 0.5rem 1.5rem;
         letter-spacing: 1px;
     }
@@ -578,7 +580,7 @@ position: absolute;
     .home-featured-story{
         display: grid;
         grid-template-columns: 1fr;
-        padding: 0 2rem;
+        padding: 0 0rem;
     
     }
     .home-featured-story-img{
@@ -618,7 +620,7 @@ position: absolute;
     .home-featured-story-title h1{
         font-family: var(--font-family);
         font-size: 37px;
-        line-height: 3rem;
+        line-height: 3.5rem;
         max-width: 300px;
         text-align: center;
         cursor: pointer;
@@ -662,7 +664,7 @@ position: absolute;
       .home-latest-container h3{
         font-family: var(--font-family);
         font-size: 23px;
-        font-weight: 300;
+        font-weight: 700;
         margin: 0.5rem 0.5rem 1.5rem;
         letter-spacing: 1px;
       }
@@ -699,10 +701,9 @@ position: absolute;
     }
     .home-sotw-content p{
         font-family: var(--font-family);
-        font-size: 19px;
+        font-size: 21px;
         margin-right: 0px;
-        color: white;
-        margin-bottom: 3.5rem;
+        margin-bottom: 3.2rem;
     }
     .home-sotw-div{
     width: 100%;
@@ -715,9 +716,11 @@ position: absolute;
     }
     .home-sotw-title h1{
         font-family: var(--font-family);
-        font-size: 33px;
+        font-size: 27px;
         margin-right: 0px;
+        font-weight: 700;
         color: white;
+        line-height: 3rem;
         max-width: 600px;
         text-align: center;
         cursor: pointer;
@@ -752,7 +755,7 @@ position: absolute;
     .home-popular h3{
         font-family: var(--font-family);
         font-size: 23px;
-        font-weight: 400;
+        font-weight: 700;
         margin: 0.5rem 0.5rem 1.5rem;
         letter-spacing: 1px;
     }
@@ -877,7 +880,7 @@ position: absolute;
     }
     .home-featured-story-content p{
         font-family: var(--font-family);
-        font-size: 16px;
+        font-size: 21px;
         line-height: 2rem;
         font-weight: 200;
         padding: 0rem 0;
@@ -893,8 +896,8 @@ position: absolute;
     .home-featured-story-title h1{
         font-family: var(--font-family);
         font-size: 37px;
-        line-height: 3rem;
-        max-width: 300px;
+        line-height: 3.5rem;
+        max-width: 100%;
         text-align: center;
         cursor: pointer;
     }
@@ -935,13 +938,7 @@ position: absolute;
         padding: 3rem 1.5rem;
         height: 600px;
       }
-      .home-latest-container h3{
-        font-family: var(--font-family);
-        font-size: 19px;
-        font-weight: 300;
-        margin: 0.5rem 0.5rem 1.5rem;
-        letter-spacing: 1px;
-      }
+   
       .home-latest{
         display: grid;
         grid-template-columns: 1fr ;
@@ -1005,8 +1002,9 @@ position: absolute;
         font-size: 21px;
         margin-right: 0px;
         font-weight: 300;
-        color: white;
-        margin-bottom: 1rem;
+        color: var(--color);
+        margin-bottom: 2.5rem;
+
     }
     .home-sotw-div{
     width: 100%;
@@ -1017,13 +1015,17 @@ position: absolute;
     .home-sotw-content p{
     
     }
+    .home-sotw-title {
+        padding: 0 2rem;
+    }
     .home-sotw-title h1{
         font-family: var(--font-family);
         font-size: 23px;
         margin-right: 0px;
+        font-weight: 700;
         color: white;
-        max-width: 300px;
-        line-height: 2rem;
+        max-width: 100%;
+        line-height: 2.5rem;
         text-align: center;
         cursor: pointer;
     }
@@ -1041,17 +1043,18 @@ position: absolute;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        margin-bottom: 0.8rem;
+        margin-bottom: 0rem;
     }
     .home-sotw-time ul li{
         margin: 1.5rem 0;
-        font-size: 12px;
+        font-size: 10px;
         color: white;
     }
     .home-sotw-time ul span li {
-        color: grey;
+        color: white;
     }
     .home-popular{
+        display: none;
         padding: 2rem 0rem;
     }
     .home-popular h3{
@@ -1069,7 +1072,6 @@ position: absolute;
 
     .home-popular-container-mobile{
         display: block;
-        background-color: green;
     }
     
     .home-cta{
@@ -1155,5 +1157,12 @@ position: absolute;
         object-fit: cover;
         object-position: top;
     }
+    .home-latest-container-mobile h3{
+        font-family: var(--font-family);
+        font-size: 19px;
+        font-weight: 700;
+        margin-top: 1rem;
+        letter-spacing: 1px;
+      }
     
 }

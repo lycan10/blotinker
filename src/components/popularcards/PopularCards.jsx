@@ -11,6 +11,7 @@ const popularCards = ({
     <>
     { 
     data.length > 0 && data.map(({imageUrl, title, createdAt, excerpt, views, slug})=>(
+        <Link className="text-decoration-none text-dark" to={`/posts/${slug}`}> 
         <div className='postcards'>
             <div className="popular-image">
                 <img src={imageUrl} alt="posts" />
@@ -28,9 +29,10 @@ const popularCards = ({
                 </div>
                 <div className="popularcards-content">
                     <p className='truncate3'>{excerpt}</p>
-                </div>
+                </div> 
             </div>
         </div>
+        </Link>
     ))  
     }
     </>

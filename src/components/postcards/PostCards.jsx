@@ -10,7 +10,7 @@ const PostCards = ({
         height: `${height}px`,
       };
   return (
-    <div className='postcards' style={cardStyle}>
+    <Link className="text-decoration-none text-dark" to={`/posts/${slug}`}><div className='postcards' style={cardStyle}>
         <div className="postcards-image">
             <img src={img} alt="posts" />
         </div>
@@ -25,6 +25,7 @@ const PostCards = ({
             <Link className="text-decoration-none text-dark" to={`/posts/${slug}`}><h1>{title}</h1></Link>
             </div>
     </div>
+    </Link> 
   )
 }
 

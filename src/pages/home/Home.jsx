@@ -88,7 +88,7 @@ const Home = () => {
             </div>
         }
         <div className="home-latest-container">
-            <h3>Latest</h3>
+            <h3>LATEST</h3>
         <div className="home-latest"> 
             {
                 latest && latest?.posts?.length > 0 &&
@@ -107,10 +107,10 @@ const Home = () => {
         </div>
         </div>
         <div className="home-latest-container-mobile">
-            <h3>Latest</h3>
+            <h3>LATEST</h3>
             <div className="home-latest">
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                    { latest && latest?.posts?.length > 0 && latest?.posts.map(({ id, imageUrl, title, createdAt, views, slug  }) => (
+                    { latest && latest?.posts?.length > 0 && latest?.posts.map(({ id, imageUrl, title, createdAt, excerpt, views, slug  }) => (
                         <SwiperSlide key={id}>
                             <PostCardMobile
                                 img={imageUrl}
@@ -118,6 +118,7 @@ const Home = () => {
                                 postDate={createdAt}
                                 postTime={views}
                                 slug={slug}
+                                excerpt={excerpt}
                             />
                         </SwiperSlide>
                     ))}
@@ -146,13 +147,13 @@ const Home = () => {
         </div>
         
         <div className="home-popular">
-            <h3>Most popular</h3>
+            <h3>MOST POPULAR</h3>
             <div className="home-popular-container">
                 { popular && popular?.posts.length> 0 && 
                     <PopularCards data={popular.posts} />
                 }
             </div>
-            <div className="home-popular-container-mobile">
+            {/* <div className="home-popular-container-mobile">
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                 { popular && popular?.posts?.length && popular?.posts && (
                     <SwiperSlide >
@@ -161,8 +162,27 @@ const Home = () => {
                 )}
                 </Swiper>
                 
-            </div>
+            </div> */}
         </div>
+        <div className="home-latest-container-mobile">
+        <h3>MOST POPULAR</h3>
+        <div className="home-latest">
+                <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+                { popular && popular?.posts?.length && popular?.posts.map(({ id, imageUrl, title, createdAt, excerpt, views, slug  }) => (
+                        <SwiperSlide key={id}>
+                            <PostCardMobile
+                                img={imageUrl}
+                                title={title}
+                                postDate={createdAt}
+                                postTime={views}
+                                slug={slug}
+                                excerpt = {excerpt}
+                            />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+                </div>
+            </div>
         <div className="home-categories">
             <CategoriesHome />
         </div>
