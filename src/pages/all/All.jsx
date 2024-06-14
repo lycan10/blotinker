@@ -1,5 +1,6 @@
 import React from 'react'
 import Categories from '../categories/Categories'
+import CategoriesHome from "../categories/CategoriesHome"
 
 import "./all.css"
 import Navbar from '../../components/navbar/Navbar'
@@ -13,7 +14,7 @@ const All = () => {
             {/* <div className="all-title">
                 <h1>All</h1>
             </div> */}
-            <Categories />
+            <CategoriesHome />
         </div>
         <Footer />
     </div>

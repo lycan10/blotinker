@@ -32,7 +32,7 @@ const CategoriesCardHome = ({ title, data, goto}) => {
             <div className="category-menu-content-left">
 
             { data.length > 0 &&
-              <div className="category-menu-content-left-top">
+              <Link className="text-decoration-none text-dark" to={`/posts/${data[0].slug}`}> <div className="category-menu-content-left-top">
                 <div className="category-menu-content-left-top-image">
                   <img src={data[0].imageUrl} alt="" />
                 </div>
@@ -41,11 +41,12 @@ const CategoriesCardHome = ({ title, data, goto}) => {
                   <p>{data[0].author.name}</p>
                 </div>
               </div>
+              </Link>
             }
             <div className="category-menu-content-left-bottom">
             <div className="category-menu-content-left-bottom-left-container"> 
               { data.length > 1 &&
-                <div className="category-menu-content-left-bottom-left"> 
+                <Link className="text-decoration-none text-dark" to={`/posts/${data[1].slug}`}><div className="category-menu-content-left-bottom-left"> 
                   <div className="category-menu-content-left-bottom-left-img"> 
                     <img src={data[1].imageUrl} alt="" />
                   </div>
@@ -54,9 +55,10 @@ const CategoriesCardHome = ({ title, data, goto}) => {
                     <p>{data[1].author.name}</p>
                   </div>
                 </div>
+                </Link>
               }
               { data.length > 2 &&
-                <div className="category-menu-content-left-bottom-left"> 
+                <Link className="text-decoration-none text-dark" to={`/posts/${data[2].slug}`}><div className="category-menu-content-left-bottom-left"> 
                   <div className="category-menu-content-left-bottom-left-img"> 
                     <img src={data[2].imageUrl} alt="" />
                   </div>
@@ -65,12 +67,13 @@ const CategoriesCardHome = ({ title, data, goto}) => {
                     <p>{data[2].author.name}</p>
                   </div>
                 </div>
+                </Link>
               }
             </div>
 
             <div className="category-menu-content-left-bottom-right-container"> 
               { data.length > 3 &&
-                <div className="category-menu-content-left-bottom-left"> 
+                <Link className="text-decoration-none text-dark" to={`/posts/${data[3].slug}`}><div className="category-menu-content-left-bottom-left"> 
                   <div className="category-menu-content-left-bottom-left-img"> 
                     <img src={data[3].imageUrl} alt="" />
                   </div>
@@ -79,9 +82,10 @@ const CategoriesCardHome = ({ title, data, goto}) => {
                     <p>{data[3].author.name}</p>
                   </div>
                 </div>
+                </Link>
               }
               { data.length > 4 &&
-                <div className="category-menu-content-left-bottom-left"> 
+                <Link className="text-decoration-none text-dark" to={`/posts/${data[4].slug}`}><div className="category-menu-content-left-bottom-left"> 
                   <div className="category-menu-content-left-bottom-left-img"> 
                     <img src={data[4].imageUrl} alt="" />
                   </div>
@@ -90,6 +94,7 @@ const CategoriesCardHome = ({ title, data, goto}) => {
                     <p>{data[4].author.name}</p>
                   </div>
                 </div>
+                </Link>
               }
 
             </div>
@@ -98,18 +103,20 @@ const CategoriesCardHome = ({ title, data, goto}) => {
             
             <div className="category-menu-content-right-container">
               { data.length > 5 &&
-                <div className="category-menu-content-right">
+               <Link className="text-decoration-none text-dark" to={`/posts/${data[5].slug}`}><div className="category-menu-content-right">
                   <img src={data[5].imageUrl} alt="" />
                   <Link className="text-decoration-none text-dark" to={`/posts/${data[5].slug}`}><h1>{data[5].title}</h1></Link>
                   <p>{data[5].author.name}</p>
                 </div>
+                </Link> 
               }
               { data.length > 6 &&
-                <div className="category-menu-content-right">
+                <Link className="text-decoration-none text-dark" to={`/posts/${data[6].slug}`}><div className="category-menu-content-right">
                   <img src={data[6].imageUrl} alt="" />
                   <Link className="text-decoration-none text-dark" to={`/posts/${data[6].slug}`}><h1>{data[6].title}</h1></Link>
                   <p>{data[6].author.name}</p>
                 </div>
+                </Link>
               }
             </div>
 
