@@ -32,11 +32,11 @@
     display: none;
 }
 .home-featured-story-content p{
-    font-family: var(--font-family);
-    font-size: 24px;
+    font-family: "inter";
+    font-size: 19px;
     line-height: 2rem;
-    font-weight: 200;
-    margin: 0rem 0 7rem;
+    font-weight: 600;
+    margin: 0rem 0 8rem;
     color: var(--color);
 }
 .home-featured-story-title{
@@ -47,8 +47,8 @@
     padding: 0rem 4rem;
 }
 .home-featured-story-title h1{
-    font-family: var(--font-family);
-    font-size: 52px;
+    font-family: "inter";
+    font-size: 42px;
     line-height: 4.5rem;
     max-width: 100%;
     text-align: center;
@@ -66,7 +66,7 @@
     justify-content: flex-start;
     align-items: center;
     padding: 0;
-    margin: 0 0 4rem;
+    margin: 0 0 3rem;
 }
 .home-featured-story-title li{
     text-decoration: none;
@@ -94,9 +94,9 @@ li::marker {
     height: 600px;
   }
   .home-latest-container h3{
-    font-family: var(--font-family);
+    font-family: "inter";
     font-size: 23px;
-    font-weight: 700;
+    font-weight: 600;
     margin: 0 0.5rem 2.5rem;
     letter-spacing: 0px;
   }
@@ -132,8 +132,9 @@ li::marker {
     width: 100%;
 }
 .home-sotw-content p{
-    font-family: var(--font-family);
-    font-size: 24px;
+    font-family: "inter";
+    font-size: 21px;
+    font-weight: 600;
     margin-right: 0px;
     color: var(--color);
     margin-bottom: 4rem;
@@ -148,8 +149,9 @@ position: absolute;
 
 }
 .home-sotw-title h1{
-    font-family: var(--font-family);
-    font-size: 55px;
+    font-family: "inter";
+    font-size: 42px;
+    font-weight: 600;
     margin-right: 0px;
     color: white;
     max-width: 850px;
@@ -185,9 +187,9 @@ position: absolute;
     padding: 3rem;
 }
 .home-popular h3{
-    font-family: var(--font-family);
+    font-family: "inter";
     font-size: 23px;
-    font-weight: 700;
+    font-weight: 600;
     margin: 0 0.5rem 2.5rem;
     letter-spacing: 1px;
 }
@@ -214,8 +216,8 @@ position: absolute;
     padding: 3rem 6rem;
 }
 .home-cta-form h1{
-    font-family: var(--font-family);
-    font-size: 55px;
+    font-family: "inter";
+    font-size: 45px;
     font-weight: 600;
     margin: 0 0rem 3rem;
     letter-spacing: 1px;
@@ -236,8 +238,8 @@ position: absolute;
     margin-top: 3rem;
 }
 .home-cta-input-button h3{
-    font-family: var(--font-family);
-    font-size: 24px;
+    font-family: "inter";
+    font-size: 21px;
     font-weight: 600;
     cursor: pointer;
 }
@@ -281,8 +283,7 @@ position: absolute;
 
 @media screen and (max-width: 1500px) {
     .home-cta-form h1{
-        font-family: var(--font-family);
-        font-size: 55px;
+        font-size: 48px;
         font-weight: 600;
         margin: 0 0rem 3rem;
         letter-spacing: 1px;
@@ -326,16 +327,14 @@ position: absolute;
         color: white;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         
     }
     .home-featured-story-content p{
-        font-family: var(--font-family);
         font-size: 16px;
         line-height: 2rem;
-        font-weight: 200;
-        margin: 7rem 0 6rem;
+        margin: 0rem 0 5rem;
         color: var(--color);
     }
     .home-featured-story-title{
@@ -345,9 +344,8 @@ position: absolute;
         align-items: center;
     }
     .home-featured-story-title h1{
-        font-family: var(--font-family);
-        font-size: 37px;
-        line-height: 3rem;
+        font-size: 33px;
+        line-height: 3.5rem;
         max-width: 300px;
         text-align: center;
         cursor: pointer;
@@ -389,9 +387,8 @@ position: absolute;
         height: 550px;
       }
       .home-latest-container h3{
-        font-family: var(--font-family);
-        font-size: 27px;
-        margin: 0rem 0.5rem 1.5rem;
+        font-size: 23px;
+        margin: 0rem 0rem 1.5rem;
         letter-spacing: 1px;
       }
       .home-latest{
@@ -426,7 +423,6 @@ position: absolute;
         width: 100%;
     }
     .home-sotw-content p{
-        font-family: var(--font-family);
         font-size: 19px;
         margin-right: 0px;
         margin-bottom: 3.5rem;
@@ -441,8 +437,7 @@ position: absolute;
     
     }
     .home-sotw-title h1{
-        font-family: var(--font-family);
-        font-size: 49px;
+        font-size: 43px;
         margin-right: 0px;
         color: white;
         max-width: 750px;
@@ -478,9 +473,8 @@ position: absolute;
         padding: 2rem 2rem 3rem;
     }
     .home-popular h3{
-        font-family: var(--font-family);
-        font-size: 27px;
-        margin: 0rem 0.5rem 1.5rem;
+        font-size: 23px;
+        margin: 0.5rem 0rem 1.5rem;
         letter-spacing: 1px;
     }
     .home-popular-container{
@@ -506,13 +500,12 @@ position: absolute;
         padding: 3rem;
     }
     .home-cta-form h1{
-        font-family: var(--font-family);
         font-size: 43px;
         font-weight: 600;
         margin: 0 0rem 3rem;
         letter-spacing: 1px;
         line-height: 4.2rem;
-        max-width: 700px;
+        max-width: 600px;
         text-align: center;
     }
     .home-cta-form-input{
@@ -573,7 +566,7 @@ position: absolute;
     
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 960px) {
     .home-container {
         padding-top: 00px; /* Adjust the value according to the navbar height */
     }
@@ -603,10 +596,8 @@ position: absolute;
         
     }
     .home-featured-story-content p{
-        font-family: var(--font-family);
         font-size: 16px;
         line-height: 2rem;
-        font-weight: 200;
         padding: 0rem 0;
         margin: 0rem 0 4rem;
         align-items: center;
@@ -618,10 +609,9 @@ position: absolute;
         align-items: center;
     }
     .home-featured-story-title h1{
-        font-family: var(--font-family);
         font-size: 37px;
         line-height: 3.5rem;
-        max-width: 300px;
+        max-width: 100%;
         text-align: center;
         cursor: pointer;
     }
@@ -662,10 +652,9 @@ position: absolute;
         height: 600px;
       }
       .home-latest-container h3{
-        font-family: var(--font-family);
-        font-size: 23px;
-        font-weight: 700;
-        margin: 0.5rem 0.5rem 1.5rem;
+        font-size: 21px;
+        font-weight: 600;
+        margin: 0.5rem 0rem 1.5rem;
         letter-spacing: 1px;
       }
       .home-latest{
@@ -700,7 +689,6 @@ position: absolute;
         width: 100%;
     }
     .home-sotw-content p{
-        font-family: var(--font-family);
         font-size: 21px;
         margin-right: 0px;
         margin-bottom: 3.2rem;
@@ -715,7 +703,6 @@ position: absolute;
     
     }
     .home-sotw-title h1{
-        font-family: var(--font-family);
         font-size: 27px;
         margin-right: 0px;
         font-weight: 700;
@@ -753,10 +740,9 @@ position: absolute;
         padding: 2rem 2rem;
     }
     .home-popular h3{
-        font-family: var(--font-family);
-        font-size: 23px;
-        font-weight: 700;
-        margin: 0.5rem 0.5rem 1.5rem;
+        font-size: 21px;
+        font-weight: 600;
+        margin: 0.5rem 0rem 1.5rem;
         letter-spacing: 1px;
     }
     .home-popular-container{
@@ -782,7 +768,6 @@ position: absolute;
         padding: 2rem;
     }
     .home-cta-form h1{
-        font-family: var(--font-family);
         font-size: 33px;
         font-weight: 600;
         margin: 0 0rem 2rem;
@@ -790,6 +775,7 @@ position: absolute;
         line-height: 3.3rem;
         max-width: 100%;
         text-align: center;
+        font-family: "inter";
     }
     .home-cta-form-input{
         width: 100%;
@@ -804,8 +790,7 @@ position: absolute;
         margin-top: 3rem;
     }
     .home-cta-input-button h3{
-        font-family: var(--font-family);
-        font-size: 24px;
+        font-size: 19px;
         font-weight: 600;
         cursor: pointer;
     }
@@ -879,10 +864,8 @@ position: absolute;
         
     }
     .home-featured-story-content p{
-        font-family: var(--font-family);
         font-size: 21px;
         line-height: 2rem;
-        font-weight: 200;
         padding: 0rem 0;
         margin: 0rem 0 4rem;
         align-items: center;
@@ -894,8 +877,7 @@ position: absolute;
         align-items: center;
     }
     .home-featured-story-title h1{
-        font-family: var(--font-family);
-        font-size: 37px;
+        font-size: 29px;
         line-height: 3.5rem;
         max-width: 100%;
         text-align: center;
@@ -947,12 +929,10 @@ position: absolute;
 
       .home-latest-container-mobile{
         display: block;
-        padding: 2rem 0 0rem ;
+        padding: 1.5rem 0 0rem ;
       }
       .home-latest-container-mobile h3{
-        font-family: var(--font-family);
         font-size: 21px;
-        font-weight: 400;
         margin: 0rem 1rem 1.5rem;
         letter-spacing: 1px;
       }
@@ -998,12 +978,10 @@ position: absolute;
         width: 100%;
     }
     .home-sotw-content p{
-        font-family: var(--font-family);
-        font-size: 21px;
+        font-size: 19px;
         margin-right: 0px;
-        font-weight: 300;
         color: var(--color);
-        margin-bottom: 2.5rem;
+        margin-bottom: 3rem;
 
     }
     .home-sotw-div{
@@ -1019,10 +997,9 @@ position: absolute;
         padding: 0 2rem;
     }
     .home-sotw-title h1{
-        font-family: var(--font-family);
-        font-size: 23px;
+        font-size: 27px;
         margin-right: 0px;
-        font-weight: 700;
+        font-weight: 600;
         color: white;
         max-width: 100%;
         line-height: 2.5rem;
@@ -1055,10 +1032,9 @@ position: absolute;
     }
     .home-popular{
         display: none;
-        padding: 2rem 0rem;
+        padding: 1.5rem 0rem;
     }
     .home-popular h3{
-        font-family: var(--font-family);
         font-size: 21px;
         font-weight: 400;
         margin: 0rem 1rem 1.5rem;
@@ -1093,11 +1069,10 @@ position: absolute;
         height: 450px;
     }
     .home-cta-form h1{
-        font-family: var(--font-family);
         font-size: 27px;
         font-weight: 600;
         margin: 0 0rem 2rem;
-        letter-spacing: 1px;
+        letter-spacing: 0px;
         line-height: 3rem;
         max-width: 300px;
         text-align: center;
@@ -1115,8 +1090,7 @@ position: absolute;
         margin-top: 3rem;
     }
     .home-cta-input-button h3{
-        font-family: var(--font-family);
-        font-size: 19px;
+        font-size: 16px;
         font-weight: 600;
         cursor: pointer;
     }

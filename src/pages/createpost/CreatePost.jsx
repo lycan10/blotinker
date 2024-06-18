@@ -30,14 +30,20 @@ import { toast } from 'react-toastify';
 import { useSignOut } from 'react-auth-kit';
 import Sidebar from '../adminpage/components/sidebar';
 import Header from '../adminpage/components/header';
+import { FaLessThanEqual } from 'react-icons/fa6';
 
 const CreatePost = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const postFromParams = searchParams.get('post');
-  const [showOffcanvas, setShowOffcanvas] = useState(true);
+  const [showOffcanvas, setShowOffcanvas] = useState(true); 
   const toggleOffcanvas = () => {
     setShowOffcanvas(!showOffcanvas);
+  }
+
+  const [showOffcanvas2, setShowOffcanvas2] = useState(false); 
+  const toggleOffcanvas2 = () => {
+    setShowOffcanvas2(!showOffcanvas2);
   }
 
   const { userInfo } = useGetUserInfo();
@@ -210,7 +216,7 @@ const CreatePost = () => {
                     <div className="createpost-publish" role="button" onClick={() => handleSavePost({ status: 'published' })}>
                       <p>Publish</p>
                     </div>
-                    <div className="createpost-offcanvas-img" onClick={toggleOffcanvas}>
+                    <div className="createpost-offcanvas-img" onClick={toggleOffcanvas2}>
                       <BsReverseLayoutSidebarReverse className='canvas-icon' />
                     </div>
                     {/* <div role="button" className="ps-4" onClick={()=>signOut()}>
@@ -243,7 +249,7 @@ const CreatePost = () => {
               </div>
             </div> */}
                   </div>
-                  <div className={`createpost-offcanvas ${showOffcanvas ? 'show' : ''}`}>
+                  <div className={`createpost-offcanvas ${showOffcanvas2 ? 'show' : ''}`}>
                     <div className="offcanvas-container">
                       <div className="offcanvas-top">
                         <h3>{saving ? <><FaSpinner className="spinner-icon" style={{ fontSize: '16px' }} /> Saving post</> : "Post"}</h3>

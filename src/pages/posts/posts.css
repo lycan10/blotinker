@@ -1,5 +1,5 @@
 .post-main{
-    padding: 6rem 20px;
+    padding: 4rem 20px;
     margin: 0 auto;
     width: 980px;
 }
@@ -42,12 +42,13 @@ p{
 
 }
 .post-header h1{
-    font-family: var(--font-family);
-    font-size: 27px;
-    line-height: 2.5rem;
+    font-family: "inter";
+    font-size: 31px;
+    max-width: 100%;
+    line-height: 2.8rem;
     letter-spacing: 0px;
     font-weight: 700;
-    margin: 1rem 0;
+    margin: 2rem 0;
 }
 .post-header p{
     font-family: "inter";
@@ -107,13 +108,30 @@ p{
 }
 .post-body p{
     font-family: "inter" !important;
-    font-size: small !important;
+    font-size: 15px !important;
     line-height: 1.5rem;
     font-weight: normal;
     margin-bottom: 1.5rem !important;
 }
 .post-body span{
     font-family: "inter" !important;
+    font-size: 15px;
+    line-height: 1.5rem !important;
+}
+.post-body h4{
+    font-family: "inter";
+    line-height: 2rem;
+}
+
+.post-body strong{
+    font-family: "inter";
+    line-height: 2rem;
+    margin-bottom: 2.5rem !important;
+}
+
+.post-body div{
+    font-family: "inter";
+    line-height: 2rem;
 }
 
 .post-body img{
@@ -213,8 +231,9 @@ padding: 1.2rem 0;
 
 .recent-posts-container p{
     font-family: "inter";
-    font-size: 21px;
-    margin: 2rem 0; 
+    font-size: 24px;
+    font-weight: 500;
+    margin: 1.5rem 0 1rem; 
 }
 .recent-posts{
     display: grid;
@@ -233,7 +252,7 @@ padding: 1.2rem 0;
 }
 .recent-post-title{
     margin: 1.5rem 0; 
-    padding: 0 24px;
+    padding: 0;
     height: 40px;
 }
 .recent-post-title h1{
@@ -295,8 +314,9 @@ padding: 1.2rem 0;
     border-bottom: 1px solid rgb(193, 193, 193);
 }
 .post-comments-title h1{
-    font-family: var(--font-family);
-    font-size: 24px;
+    font-family: "inter";
+        font-size: 24px;
+        font-weight: 500;
     letter-spacing: 1px;
     margin: 1rem 0;
 }
@@ -324,7 +344,7 @@ padding: 1.2rem 0;
 
 @media screen and (max-width: 1200px) {
     .post-main{
-        padding: 6rem 3rem;
+        padding: 3rem 3rem;
         margin: 0 auto;
         width: 100%;
     }
@@ -363,10 +383,7 @@ padding: 1.2rem 0;
     
     }
     .post-header h1{
-        font-family: var(--font-family);
-        font-size: 40px;
-        letter-spacing: 2px;
-        margin: 1rem 0;
+        font-size: 27px;
     }
     .post-header p{
         font-family: "inter";
@@ -594,10 +611,7 @@ padding: 1.2rem 0;
         border-bottom: 1px solid rgb(193, 193, 193);
     }
     .post-comments-title h1{
-        font-family: var(--font-family);
-        font-size: 24px;
-        letter-spacing: 1px;
-        margin: 1rem 0;
+        font-size: 21px;
     }
     .post-comments-inputs{
         padding: 0rem 20px;
@@ -659,9 +673,8 @@ padding: 1.2rem 0;
     
     }
     .post-header h1{
-        font-family: var(--font-family);
-        font-size: 33px;
-        letter-spacing: 2px;
+        font-family: "Inter";
+        font-size: 27px;
         margin: 1rem 0;
     }
     .post-header p{
@@ -810,7 +823,7 @@ padding: 1.2rem 0;
     .recent-posts-container p{
         font-family: "inter";
         font-size: 21px;
-        margin: 2rem 0; 
+        margin: 2rem 0 1rem; 
     }
     .recent-posts{
         display: none;
@@ -858,7 +871,7 @@ padding: 1.2rem 0;
     }
     .recent-post-title{
         margin: 2rem 0; 
-        padding: 0 24px;
+        padding: 0 0px;
         height: 40px;
     }
     .recent-post-title h1{
@@ -920,9 +933,7 @@ padding: 1.2rem 0;
         border-bottom: 1px solid rgb(193, 193, 193);
     }
     .post-comments-title h1{
-        font-family: var(--font-family);
-        font-size: 24px;
-        letter-spacing: 1px;
+        font-size: 21px;
         margin: 1rem 0;
     }
     .post-comments-inputs{
@@ -946,8 +957,8 @@ padding: 1.2rem 0;
 }
 @media screen and (max-width: 500px) {
     .post-main{
-        padding: 4rem 0rem;
-        margin: 0 auto;
+        padding: 2rem 1rem;
+        margin: 0;
         width: 100%;
     }
     .posts-container{
@@ -969,7 +980,7 @@ padding: 1.2rem 0;
         align-items: center;
         padding: 0;
         margin: 0;
-        padding: 0 1.5rem;
+        padding: 0 0rem;
     }
     .post-time span li{
         text-decoration: none;
@@ -987,17 +998,22 @@ padding: 1.2rem 0;
     
     }
     .post-header h1{
-        font-family: var(--font-family);
-        font-size: 33px;
-        letter-spacing: 2px;
+        font-family: "inter";
+        font-size: 24px;
+        font-weight: 500;
+        max-width: 100% !important;
+        line-height: 2.2rem;
+        letter-spacing: 0px;
+        font-weight: 700;
         margin: 1rem 0;
-        padding: 0 1.5rem;
+        padding: 0 0rem;
     }
     .post-header p{
         font-family: "inter";
         font-size: 16px;
         line-height: 2rem;
         font-weight: 200;
+        padding: 0;
     }
     .posts-header-img{
         width: 100%;
@@ -1009,7 +1025,19 @@ padding: 1.2rem 0;
         height: 400px;
     }
     .post-quote{
-        padding: 0 1.5rem;
+        padding: 0rem;
+    }
+
+    .post-body h4{
+        font-family: "inter";
+        line-height: 2rem;
+        margin-bottom: 2.5rem !important;
+    }
+    .post-body p{
+        padding: 0;
+    }
+    .post-body span{
+        padding: 0;
     }
     .post-quote h1{
         font-family: var(--font-family);
@@ -1047,7 +1075,7 @@ padding: 1.2rem 0;
         font-size: 23px;
         letter-spacing: 2px;
         margin: 2.5rem 0 1rem; 
-        padding: 0 1.5rem;
+        padding: 0 0rem;
     }
     .post-paragraph p{
         font-family: "inter";
@@ -1146,8 +1174,10 @@ padding: 1.2rem 0;
     }
     
     .recent-posts-container p{
-        font-family: var(--font-family);
-        font-size: 24px;
+        font-family: "inter";
+        font-size: 21px;
+        font-weight: 500;
+        padding: 0;
         margin: 2rem 0 1rem; 
     }
     .recent-post-image{
@@ -1161,17 +1191,17 @@ padding: 1.2rem 0;
     }
     .recent-post-title{
         margin: 1rem 0 0; 
-        padding: 0 1rem;
+        padding: 0 0rem;
         height: 40px;
     }
     .recent-post-title h1{
-        font-family: var(--font-family);
         font-size: 16px;
         line-height: 23px;
     }
     .recent-post-content{
         border-top: 1px solid rgb(193, 193, 193);
         padding-top: 1rem;
+        margin-top: 2rem;
 
     }
     .recent-post-data-container{
@@ -1220,16 +1250,17 @@ padding: 1.2rem 0;
     }
     
     .post-comments-container{
-        margin: 6rem 0 0;
-        padding: 0 1.5rem 0px ;
+        margin: 4rem 0 0;
+        padding: 0 0rem 0px ;
     }
     .post-comments-title{
         border-bottom: 1px solid rgb(193, 193, 193);
     }
     .post-comments-title h1{
-        font-family: var(--font-family);
-        font-size: 23px;
-        letter-spacing: 1px;
+        font-family: "inter";
+        font-size: 19px;
+        font-weight: 500;
+        letter-spacing: 0px;
         margin: 1rem 0;
     }
     .post-comments-inputs{

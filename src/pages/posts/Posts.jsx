@@ -253,7 +253,7 @@ const Posts = () => {
                         onChange={(e) => setText(e.target.value)}
                         placeholder="Write a comment..."
                       />
-                      <div className="post-comments-emoji">
+                      {/* <div className="post-comments-emoji">
                         <img
                           className="emoji-icon"
                           src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"
@@ -263,7 +263,7 @@ const Posts = () => {
                         {showPicker && (
                           <Picker pickerStyle={{ width: "100%" }} onEmojiClick={onEmojiClick} />
                         )}
-                      </div>
+                      </div> */}
                     </div>
                     <button onClick={()=>handleComment()} type='button' className='btn btn-primary btn-sm'>{isCommenting ? <FaSpinner className="spinner-icon" style={{fontSize:'16px'}} /> : "Post Coment"}</button>
                   </div>

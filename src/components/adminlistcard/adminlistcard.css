@@ -25,11 +25,12 @@
 .adminlistcard-title h3{
     font-family: "inter";
     font-size: 19px;
+    line-height: 1.8rem;
     font-weight: 600;
 }
 .adminlistcard-title p{
     font-family: "inter";
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 200;
     color: var(--color);
 }
@@ -243,9 +244,9 @@
     }
     .adminlistcard-content p{
         font-family: "inter";
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 300;
-        line-height: 1.2rem;
+        line-height: 1.5rem;
         margin: 0.5rem 0;
         padding: 0;
     }

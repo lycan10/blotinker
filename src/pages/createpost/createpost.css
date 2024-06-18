@@ -81,10 +81,7 @@ font-size: 21px;
 .createpost-body-container{
 
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start; 
+    grid-template-columns: 3fr 1fr; 
     height: 100%;
 
 }
@@ -92,7 +89,7 @@ font-size: 21px;
     padding: 3rem 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center; 
     height: 100%;
 }
