@@ -54,7 +54,7 @@ p{
 .navbar-subscribe p{
   font-family: "Inter";
   font-size: 16px;
-  font-weight: 200;
+  font-weight: 400;
   color: white;
 }
 .navbar-title{
@@ -400,7 +400,6 @@ p{
 .navbar-subscribe p{
   font-family: "Inter";
   font-size: 14px;
-  font-weight: 200;
 }
 .navbar-title{
   display: flex;
