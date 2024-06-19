@@ -19,6 +19,8 @@ import { IoMdClose } from "react-icons/io";
 
 import menuItems from './MenuItems';
 
+import logo from "../../assets/Logo11.png"
+
 import { AiOutlineClose } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useCreate } from '../hooks/useCreate';
@@ -125,7 +127,9 @@ const Navbar = () => {
                     <p>Subscribe</p>
                 </div>
                 <div className="navbar-title">
-                    <h1 onClick={navigateToHome}>BLOTINK</h1>
+                    <div className='navbar-logo' onClick={navigateToHome}>
+                      <img src={logo} alt="" />
+                    </div>
                 </div>
                 <div className="navbar-menu" onClick={toggleDropdown}>
                     <h3>MENU</h3>
@@ -135,7 +139,9 @@ const Navbar = () => {
                 <div className="navbar-main-container">
                    <div className="navbar-header">
                     <h3 onClick={navigateToCreatePost}>{token ? "Dashboard" : "LOGIN"}</h3>
-                    <h1 onClick={navigateToHome}>BLOTINKER</h1>
+                    <div className='navbar-logo' onClick={navigateToHome}>
+                      <img src={logo} alt="" />
+                    </div>
                     <h3 onClick={toggleDropdown}>CLOSE</h3>
                    </div>
                    <div className="navbar-menus-container slide-top">
@@ -182,8 +188,8 @@ const Navbar = () => {
             </div>
 
      <nav className="navbar-mobile">
-      <div className="navbar-logo">
-        <h1 onClick={navigateToHome}>BLOTINK</h1>
+      <div className='navbar-logo2' onClick={navigateToHome}>
+                      <img src={logo} alt="" />
       </div>
       <div className="menu-icon" onClick={handleClick}>
       {active ? <AiOutlineClose /> : <RxHamburgerMenu /> }
