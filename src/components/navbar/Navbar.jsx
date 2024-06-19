@@ -26,6 +26,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { useCreate } from '../hooks/useCreate';
 import Spinner from 'react-bootstrap/Spinner';
 import { useGetUserInfo } from '../hooks/useGetUserInfo';
+import SubscribeBTN from './SubscribeBTN';
 
 const date = new Date()
 
@@ -75,6 +76,11 @@ const Navbar = () => {
         window.location.href = newUrl
         setIsOpen(false)
     }
+    const navigateToContact = () => {
+      const newUrl = "/contact"
+      window.location.href = newUrl
+      setIsOpen(false)
+  }
 
     const navigateToAll = () => {
         const newUrl = "/all"
@@ -96,6 +102,11 @@ const Navbar = () => {
         window.location.href = newUrl
         setIsOpen(false)
     }
+    const navigateToAbout = () => {
+      const newUrl = "/about"
+      window.location.href = newUrl
+      setIsOpen(false)
+  }
 
     const navigateToCreatePost = () => {
         navigate('/admin');
@@ -123,9 +134,7 @@ const Navbar = () => {
     return (
         <div className='navbar'>
             <div className="navbar-container">
-                <div className="navbar-subscribe" onClick={handleShow}>
-                    <p>Subscribe</p>
-                </div>
+                <SubscribeBTN />
                 <div className="navbar-title">
                     <div className='navbar-logo' onClick={navigateToHome}>
                       <img src={logo} alt="" />
@@ -152,8 +161,8 @@ const Navbar = () => {
                     <NavLink // CSS class name for the active state
                     className="links" onClick={navigateToAll}>ALL</NavLink>
                     <NavLink className="links" onClick={navigateToHome}>HOME</NavLink>
-                    <NavLink className="links" to="">ABOUT</NavLink>
-                    <NavLink className="links" to="">CONTACT</NavLink>
+                    <NavLink className="links" onClick={navigateToAbout}>ABOUT</NavLink>
+                    <NavLink className="links" onClick={navigateToContact}>CONTACT</NavLink>
                     <div className="navbar-menu-socials">
                     <Link ><FaFacebookF className='footer-socials-space cta-socials' /></Link>
                     <Link><FaXTwitter className='footer-socials-space cta-socials' /></Link>
@@ -212,50 +221,6 @@ const Navbar = () => {
       </ul>
      
     </nav>
-            
-            
-            <Modal show={show} onHide={handleClose} animation={true} centered size="lg">
-       
-        <Modal.Body>
-            <div className="sub">
-                <div className="sub-image">
-                    <img src={sub} alt="" />
-                </div>
-                <div className="sub-text-container">
-                    <div className="sub-button-container">
-                    <div className="sub-button" onClick={handleClose}>
-                        <IoMdClose className='sub-button2' />
-                    </div>
-                    </div>
-                    <div className="sub-text">
-                        <h1>Subscribe</h1>
-                        <p>For all the latest travel destinations, recipes and wellness tips.</p>
-                    </div>
-                    <div className="sub-form">
-                        <div className="sub-input">
-                            <input type="text" placeholder='Your name' />
-                        </div>
-                        <div className="sub-input">
-                        <input value={email} type="text" placeholder='your.email@example.com' onChange={(e)=>setEmail(e.target.value)} />
-                        </div>
-                        <div className="sub-input-button" onClick={()=>handleSubmit()}>
-                          {isLoading ? <><Spinner
-                            as="span"
-                            animation="grow"
-                            size="sm"
-                            role="status"
-                            aria-hidden="true"
-                            />
-                            <span>Loading...</span></>: "SUBSCRIBE" }
-                        </div>
-                    </div>
-                    <div className="sub-footer">
-                        <p>We value your privacy and will never send irrelevant information.</p>
-                    </div>
-                </div>
-            </div>
-        </Modal.Body>
-      </Modal>
         </div>
     );
 }

@@ -34,7 +34,7 @@ const Footer = () => {
                 <Link><FaInstagram className='footer-socials-space' /></Link>
             </div>
             <div className="footer-copyright">
-                <p>&#169; {date.getFullYear()} by BLOTINKER. Powered by LycanTech.</p>
+                <p>&#169; {date.getFullYear()} The Unburden. Powered by Vodzza.</p>
             </div>
         </div>
     </div>

@@ -21,6 +21,8 @@ import PublishedPosts  from './pages/adminpage/PublishedPosts';
 import SavedDraft from './pages/adminpage/SavedDraft';
 import PostByCategory from './pages/adminpage/PostByCategory';
 import ReactGA from 'react-ga4';
+import About from './pages/about/About';
+import Contact from './pages/contact/Contact';
 
 ReactGA.initialize('G-DBCCFMVZ04');
 
@@ -63,6 +65,9 @@ function AppWrapper() {
         <Route path='/health' element={<Health />} />
         <Route path='/login' element={<Login />} />
         <Route path='/preview' element={<Preview />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/contact' element={<Contact />} />
+        
       </Routes>
     </>
   );
