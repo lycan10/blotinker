@@ -1,32 +1,47 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import { motion } from "framer-motion";
 import ReactGA from 'react-ga4';
 import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Footer from '../../components/footer/Footer';
 import Navbar from '../../components/navbar/Navbar';
 
-
-
-import banner from "../../assets/aboutimg.jpg"
-
-import "./about.css"
+import banner from "../../assets/aboutimg.jpg";
+import "./about.css";
 import SubscribeBTN from '../../components/navbar/SubscribeBTN';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   const location = useLocation();
+
   useEffect(() => {
     ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });
   }, [location]);
-  
+
+  useEffect(() => {
+    if (window.innerWidth > 960) {
+      gsap.to('.about-content-container', {
+        scrollTrigger: {
+          trigger: '.about-container',
+          start: 'top top',
+          end: 'bottom 95%',
+          scrub: true,
+          pin: '.about-image',
+        },
+      });
+    }
+  }, []);
+
   return (
     <div className='About'>
       <Navbar />
-        <div className="about-container">
-          <div className="about-image">
-            <img src={banner} alt="" />
-          </div>
-          <div className="about-content-container">
+      <div className="about-container">
+        <div className="about-image">
+          <img src={banner} alt="" />
+        </div>
+        <div className="about-content-container">
           <div className="about-content">
             <h1>The Unburden</h1>
             <div className="about-content-writeup">
@@ -38,21 +53,20 @@ const About = () => {
               <p>Food is more than just fuel; it's a celebration of life, a way to connect with loved ones, and a source of vibrant energy. We'll guide you on a culinary adventure, from exploring healthy and delicious recipes to uncovering the stories behind global cuisines. It's about nurturing your body with wholesome ingredients while sparking joy with every bite.</p>
               <h3>Cultivating Inner Peace:</h3>
               <p>Life's a balancing act, and sometimes the scales can tip towards stress and anxiety. At The Unburden, we'll share practical tips and mindfulness practices to help you find your center. Whether it's through yoga poses, meditation techniques, or simply connecting with nature, we'll equip you with the tools to cultivate inner peace and well-being in your daily life.</p>
-           
             </div>
           </div>
           <div className="about-subcribe-container">
-              <h3>Join the Unburdening Community:</h3>
-              <p>The Unburden is more than just a blog – it's a movement. Are you ready to embark on your own adventure towards inner peace? Explore our articles, join the conversation, and experience the transformative power of travel, food, and healthy living. Your journey to a lighter, more joyful you starts here.</p>
-              <div className="sub-btn">
+            <h3>Join the Unburdening Community:</h3>
+            <p>The Unburden is more than just a blog – it's a movement. Are you ready to embark on your own adventure towards inner peace? Explore our articles, join the conversation, and experience the transformative power of travel, food, and healthy living. Your journey to a lighter, more joyful you starts here.</p>
+            <div className="sub-btn">
               <SubscribeBTN />
-              </div>
-          </div>
+            </div>
           </div>
         </div>
+      </div>
       <Footer />
     </div>
-  )
+  );
 }
 
 export default About;
