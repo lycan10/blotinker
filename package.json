@@ -10,16 +10,19 @@
     "@testing-library/user-event": "^13.5.0",
     "aos": "^2.3.4",
     "apexcharts": "^3.49.1",
-    "axios": "^1.6.7",
+    "axios": "^1.7.2",
+    "body-parser": "^1.20.2",
     "bootstrap": "^5.3.3",
     "dayjs": "^1.11.11",
     "emoji-mart": "^5.5.2",
     "emoji-picker-react": "^4.9.2",
+    "express": "^4.19.2",
     "faker": "^6.6.6",
     "framer-motion": "^11.0.6",
     "gsap": "^3.12.5",
     "jodit": "^4.2.25",
     "jodit-react": "^4.1.2",
+    "postmark": "^4.0.4",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
     "react-auth-kit": "^2.12.2",
@@ -60,6 +63,7 @@
     ]
   },
   "devDependencies": {
-    "@faker-js/faker": "^8.4.1"
+    "@faker-js/faker": "^8.4.1",
+    "nodemon": "^3.1.4"
   }
 }

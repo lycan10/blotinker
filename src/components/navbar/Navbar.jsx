@@ -5,6 +5,7 @@ import { FaFacebookF, FaRegCommentAlt  } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 import { FaInstagram } from "react-icons/fa6";
+import { FaTiktok } from "react-icons/fa";
 import { AiOutlineLink } from "react-icons/ai";
 import { toast } from 'react-toastify';
 import {HashLink} from "react-router-hash-link"
@@ -164,9 +165,10 @@ const Navbar = () => {
                     <NavLink className="links" onClick={navigateToAbout}>ABOUT</NavLink>
                     <NavLink className="links" onClick={navigateToContact}>CONTACT</NavLink>
                     <div className="navbar-menu-socials">
-                    <Link ><FaFacebookF className='footer-socials-space cta-socials' /></Link>
-                    <Link><FaXTwitter className='footer-socials-space cta-socials' /></Link>
-                    <Link><FaInstagram className='footer-socials-space cta-socials' /></Link>
+                    <Link to={"https://www.facebook.com/profile.php?id=61561143368097"}><FaFacebookF className='footer-socials-space cta-socials' /></Link>
+                    <Link to={"https://x.com/TUnburden"}><FaXTwitter className='footer-socials-space cta-socials' /></Link>
+                    <Link to={"https://www.instagram.com/unburden_okay?igsh=MWxkOTFjbndpdmI2dA%3D%3D&utm_source=qr"}><FaInstagram className='footer-socials-space cta-socials' /></Link>
+                    <Link to={"https://www.tiktok.com/@the.unburden?_t=8nOMw6g2oXB&_r=1"}><FaTiktok className='footer-socials-space cta-socials' /></Link>
                     </div>
                    </div>
                    <div className="navbar-menu-cta">
@@ -201,6 +203,7 @@ const Navbar = () => {
                       <img src={logo} alt="" />
       </div>
       <div className="menu-icon" onClick={handleClick}>
+      
       {active ? <AiOutlineClose /> : <RxHamburgerMenu /> }
       </div>
       <ul className={active ? "nav-menu active" : "nav-menu"}>
@@ -213,11 +216,17 @@ const Navbar = () => {
             </li>
           );
         })}
+        
             <div className="navbar-menu-socials-mobile">
-                <Link ><FaFacebookF className='footer-socials-space cta-socials cta-mobile' /></Link>
-                <Link><FaXTwitter className='footer-socials-space cta-socials cta-mobile' /></Link>
-                <Link><FaInstagram className='footer-socials-space cta-socials cta-mobile' /></Link>
+                <Link to={"https://www.facebook.com/profile.php?id=61561143368097"} ><FaFacebookF className='footer-socials-space cta-socials cta-mobile' /></Link>
+                <Link to={"https://x.com/TUnburden"}><FaXTwitter className='footer-socials-space cta-socials cta-mobile' /></Link>
+                <Link to={"https://www.instagram.com/unburden_okay?igsh=MWxkOTFjbndpdmI2dA%3D%3D&utm_source=qr"}><FaInstagram className='footer-socials-space cta-socials cta-mobile' /></Link>
+                <Link to={"https://www.tiktok.com/@the.unburden?_t=8nOMw6g2oXB&_r=1"}><FaTiktok className='footer-socials-space cta-socials cta-mobile' /></Link>
             </div>
+            <div className="navbar-menu-socials-mobile">
+            <SubscribeBTN />
+            </div>
+            
       </ul>
      
     </nav>
