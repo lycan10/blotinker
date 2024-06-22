@@ -56,6 +56,12 @@ p{
   font-size: 16px;
   font-weight: 400;
   color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 .navbar-title{
   display: flex;
@@ -233,7 +239,7 @@ p{
 }
 .sub-image{
 width: 45%;
-height: 550px;
+height: 570px;
 }
 .sub-image img{
 width: 100%;
@@ -245,7 +251,7 @@ border-bottom-left-radius: 6px;
 .sub-text-container{
 width: 55%;
 padding: 1rem 2rem;
-height: 550px;
+height: 570px;
 }
 .sub-button-container{
 width: 100%;
@@ -935,8 +941,8 @@ padding: 0;
 @media screen and (max-width: 500px) {
   .navbar-logo2{
     width: 200px;
-    height: 50px;
-    margin-left: 0rem;
+    height: 40px;
+    margin-left: 0.4rem;
   }
   .menu-icon {
     display: block;

@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import Spinner from 'react-bootstrap/Spinner';
 import sub from "../../assets/sub3.jpg";
 import axios from 'axios';
+import MailForm from '../mailForm/MailForm';
 
 const SubscribeBTN = () => {
   const [show, setShow] = useState(false);
@@ -39,7 +40,6 @@ const SubscribeBTN = () => {
   return (
     <div className="navbar-subscribe">
       <p onClick={handleShow}>Subscribe</p>
-
       <Modal show={show} onHide={handleClose} animation={true} centered size="lg">
         <Modal.Body>
           <div className="sub">
@@ -56,7 +56,8 @@ const SubscribeBTN = () => {
                 <h1>Subscribe</h1>
                 <p>For all the latest travel destinations, recipes and wellness tips.</p>
               </div>
-              <div className="sub-form">
+              <MailForm />
+              {/* <div className="sub-form">
                 <form onSubmit={handleSubmit}>
                   <div className="sub-input">
                     <input 
@@ -95,13 +96,14 @@ const SubscribeBTN = () => {
                     </div>
                   </div>
                 </form>
-              </div>
+              </div> */}
               <div className="sub-footer">
                 <p>We value your privacy and will never send irrelevant information.</p>
               </div>
             </div>
           </div>
         </Modal.Body>
+       
       </Modal>
     </div>
   );

@@ -1,5 +1,7 @@
+import React, { useState, useEffect } from 'react';
+
 import './App.css';
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate,  } from 'react-router-dom';
 
 
 import Home from './pages/home/Home';
@@ -24,9 +26,29 @@ import ReactGA from 'react-ga4';
 import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
 
+import { toast } from 'react-toastify';
+import Modal from 'react-bootstrap/Modal';
+import Spinner from 'react-bootstrap/Spinner';
+import sub from "../src/assets/sub3.jpg";
+import axios from 'axios';
+import MailForm from '../src/components/mailForm/MailForm';
+import { IoMdClose } from "react-icons/io";
+
 ReactGA.initialize('G-DBCCFMVZ04');
 
 function AppWrapper() {
+  const [showModal, setShowModal] = useState(false);
+  const handleClose3 = () => setShowModal(false);
+  const handleShow3 = () => setShowModal(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowModal(true);
+    }, 5000);
+
+    return () => clearTimeout(timer); // Cleanup the timer on component unmount
+  }, []);
+  
   //const location = useLocation();
  // const hideNavbar = location.pathname === '/createpost';
  const PrivateRoute = ({ Component }) => {
@@ -69,11 +91,37 @@ function AppWrapper() {
         <Route path='/contact' element={<Contact />} />
         
       </Routes>
+      <Modal show={showModal} onHide={handleClose3} animation={true} centered size="lg">
+        <Modal.Body>
+          <div className="sub">
+            <div className="sub-image">
+              <img src={sub} alt="Subscription" />
+            </div>
+            <div className="sub-text-container">
+              <div className="sub-button-container">
+                <div className="sub-button">
+                  <IoMdClose onClick={handleClose3} className='sub-button2' />
+                </div>
+              </div>
+              <div className="sub-text">
+                <h1>Subscribe</h1>
+                <p>For all the latest travel destinations, recipes and wellness tips.</p>
+              </div>
+              <MailForm />
+              <div className="sub-footer">
+                <p>We value your privacy and will never send irrelevant information.</p>
+              </div>
+            </div>
+          </div>
+        </Modal.Body>
+       
+      </Modal>
     </>
   );
 }
 
 function App() {
+  
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -83,6 +131,8 @@ function App() {
       },
     },
   });
+
+ 
 
   return (
     <AuthProvider authName='' authType='localstorage'>
