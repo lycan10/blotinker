@@ -7,37 +7,48 @@ import { TbTransactionDollar } from "react-icons/tb";
 import axios from "axios";
 import { toast } from 'react-toastify';
 import "./contact.css";
+import { BASE_URL } from '../../environment';
 
 const Contact = () => {
-  const [email, setEmail] = useState('');
-  const [fName, setFName] = useState('');
-  const [lName, setLName] = useState('');
-  const [company, setCompany] = useState('');
-  const [budget, setBudget] = useState('');
-  const [message, setMessage] = useState('');
+  const [formData, setFormData] = useState({
+    email: '',
+    fName: '',
+    lName: '',
+    company: '',
+    budget: '',
+    message: ''
+  });
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = async () => {
     setIsLoading(true);
-
+  
     try {
-      await axios.post('http://localhost:3000/send-email', {
-        to: email,
-        fName,
-        lName,
-        company,
-        budget,
-        message
+      const response = await axios.post(`${BASE_URL}/contact-mail/send-email`, formData, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
       });
-      setEmail('');
-      setFName('');
-      setLName('');
-      setCompany('');
-      setBudget('');
-      setMessage('');
-
+      console.log('Email sent successfully:', response.data);
+  
       toast.success('Email sent successfully!');
+      setFormData({
+        email: '',
+        fName: '',
+        lName: '',
+        company: '',
+        budget: '',
+        message: ''
+      });
     } catch (error) {
       console.error('Error sending email', error);
       toast.error('Error sending email');
@@ -45,6 +56,7 @@ const Contact = () => {
       setIsLoading(false);
     }
   };
+  
 
   return (
     <div className='contact'>
@@ -56,37 +68,37 @@ const Contact = () => {
               <h1>Looking to connect your brand with a passionate and engaged audience? </h1>
               <p style={{ color: "white" }} className='cta-title'>The Unburden offers a unique platform to reach individuals seeking to enrich their lives through travel, delicious food, and healthy living practices. Our audience is highly engaged and receptive to brands that align with their values of exploration, well-being, and a balanced lifestyle.</p>
             </div>
-            <form onSubmit={handleSubmit} className="cta-form-container">
+            <form className="cta-form-container">
               <div className="form-left">
                 <div className="form-left-input">
-                  <input type="text" placeholder='First Name' value={fName} onChange={(e) => setFName(e.target.value)} />
+                  <input type="text" name="fName" placeholder='First Name' value={formData.fName} onChange={handleChange} required />
                 </div>
                 <div className="form-left-input">
-                  <input type="text" placeholder='Last Name' value={lName} onChange={(e) => setLName(e.target.value)} />
+                  <input type="text" name="lName" placeholder='Last Name' value={formData.lName} onChange={handleChange} required />
                 </div>
                 <div className="form-left-input stuff">
                   <AiOutlineMail className='form-icon' />
-                  <input type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <input type="email" name="email" placeholder='Email' value={formData.email} onChange={handleChange} required />
                 </div>
                 <div className="form-left-input stuff">
                   <BsFillBuildingsFill className='form-icon' />
-                  <input type="text" placeholder='Company name' value={company} onChange={(e) => setCompany(e.target.value)} />
+                  <input type="text" name="company" placeholder='Company name' value={formData.company} onChange={handleChange} />
                 </div>
                 <div className="form-left-input stuff">
                   <TbTransactionDollar className='form-icon' />
-                  <input type="text" placeholder='Budget' value={budget} onChange={(e) => setBudget(e.target.value)} />
+                  <input type="text" name="budget" placeholder='Budget' value={formData.budget} onChange={handleChange} />
                 </div>
               </div>
               <div className="form-right">
                 <div className="form-left-textarea">
-                  <textarea type="text" placeholder='Tell us about your brand....' value={message} onChange={(e) => setMessage(e.target.value)} />
+                  <textarea name="message" placeholder='Tell us about your brand....' value={formData.message} onChange={handleChange} />
                 </div>
               </div>
               <div className="cta-footer-container">
                 <h1>By continuing you agree to our <span>Privacy Policy</span></h1>
-                <div type="submit" className="cta-footer-button" disabled={isLoading}>
+                <button type="submit" onClick={()=>handleSubmit()} className="cta-footer-button" disabled={isLoading}>
                   {isLoading ? "Submitting..." : "Submit"}
-                </div>
+                </button>
               </div>
             </form>
           </div>
@@ -94,7 +106,7 @@ const Contact = () => {
       </div>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
 export default Contact;
