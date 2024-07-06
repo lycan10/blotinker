@@ -31,6 +31,7 @@ import { Link, useHistory } from 'react-router-dom';
 import CategoriesHome from '../categories/CategoriesHome'
 import { useLocation } from 'react-router-dom';
 import ReactGA from 'react-ga4';
+import SubscribeBTN from '../../components/navbar/SubscribeBTN'
 
 const Home = () => {
     const location = useLocation();
@@ -192,14 +193,14 @@ const Home = () => {
                     <div className="home-cta-form-title">
                         <h1 style={{color: "white"}}>Stay updated! Subscribe to our blog today.</h1>
                     </div>
-                    <div className="home-cta-form-input">
+                    {/* <div className="home-cta-form-input">
                         <div className="home-cta-input-button">
                             <p>Email <span>*</span></p>
                             <h3 onClick={()=>handleSubmit()}>{isLoading ? <><Spinner
                             as="span"
                             animation="grow"
                             size="sm"
-                            role="status"
+                            role="status" 
                             aria-hidden="true"
                             />
                             <span>Loading...</span></>: "SUBSCRIBE" }</h3>
@@ -207,7 +208,8 @@ const Home = () => {
                         <div className="home-cta-form-input-main">
                             <input type="text" value={email} onChange={(e)=> setEmail(e.target.value)} />
                         </div>
-                    </div>
+                    </div> */}
+                    <SubscribeBTN />
                 </div>
                 <div className="home-cta-image">
                     <img src={cta1} alt="" />

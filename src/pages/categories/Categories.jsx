@@ -36,7 +36,7 @@ const Categories = () => {
         <CategoryCards title="Food & Recipes" data={food && food?.posts?.length > 0 ? food?.posts: []}/>
         </div>
       </div>
-    </div>
+    </div> 
   );
 }
 

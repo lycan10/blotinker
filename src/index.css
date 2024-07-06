@@ -16,6 +16,11 @@ body {
   --color: #F4CE14
 }
 
+.nav-menu.active .navbar-subscribe p{
+  color: black !important;
+}
+
+
 
 .slide-top {
 	-webkit-animation: slide-top 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;

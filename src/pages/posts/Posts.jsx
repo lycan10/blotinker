@@ -178,16 +178,42 @@ const Posts = () => {
                   </div>
                 </div>
               </div>
+              <div className="post-comments-container">
+                <div className="post-comments-title">
+                  <h1>Comments</h1>
+                </div>
+                <div className="post-comments-inputs">
+                  <input
+                    type="text"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    placeholder="Write a comment..."
+                  />
+                  {/* <div className="post-comments-emoji">
+                    <img
+                      className="emoji-icon"
+                      src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"
+                      onClick={() => setShowPicker((val) => !val)}
+                      alt=""
+                    />
+                    {showPicker && (
+                      <Picker pickerStyle={{ width: "100%" }} onEmojiClick={onEmojiClick} />
+                    )}
+                  </div> */}
+                </div>
+                <button onClick={handleComment} type='button' className='btn btn-primary btn-sm'>{isCommenting ? <FaSpinner className="spinner-icon" style={{ fontSize: '16px'}} /> : "Post Comment"}</button>
+              </div>
+              <Comments id={data.id} />
               <div className="recent-posts-container">
                 <p>Recent Posts</p>
                 <div className="recent-posts">
                   {recentData && recentData.posts.length > 0 && recentData.posts.map((item) => (
-                    <div key={item.id}>
-                      <div className="recent-post-image">
+                    <Link to={`/posts/${item.slug}`} className='text-decoration-none text-dark'><div key={item.id}>
+                     <div className="recent-post-image">
                         <img src={item.imageUrl} alt="" />
-                      </div>
+                      </div> 
                       <div className="recent-post-title">
-                        <Link to={`/posts/${item.slug}`} className='text-decoration-none text-dark'><h1 className="truncate2">{item.title}</h1></Link>
+                        <Link to={`/posts/${item.slug}`} className='text-decoration-none text-dark'><h1 className="truncate2">{item.title}</h1> </Link>
                       </div>
                       <div className="recent-post-content">
                         <div className="recent-post-data-container">
@@ -210,6 +236,7 @@ const Posts = () => {
                         </div>
                       </div>
                     </div>
+                    </Link>  
                   ))}
                 </div>
                 <div className="recent-posts-mobile">
@@ -250,33 +277,9 @@ const Posts = () => {
                 </div>
               </div>
 
-              <div className="post-comments-container">
-                <div className="post-comments-title">
-                  <h1>Comments</h1>
-                </div>
-                <div className="post-comments-inputs">
-                  <input
-                    type="text"
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                    placeholder="Write a comment..."
-                  />
-                  {/* <div className="post-comments-emoji">
-                    <img
-                      className="emoji-icon"
-                      src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"
-                      onClick={() => setShowPicker((val) => !val)}
-                      alt=""
-                    />
-                    {showPicker && (
-                      <Picker pickerStyle={{ width: "100%" }} onEmojiClick={onEmojiClick} />
-                    )}
-                  </div> */}
-                </div>
-                <button onClick={handleComment} type='button' className='btn btn-primary btn-sm'>{isCommenting ? <FaSpinner className="spinner-icon" style={{ fontSize: '16px' }} /> : "Post Comment"}</button>
-              </div>
+            
 
-              <Comments id={data.id} />
+         
             </div>
             <Footer />
           </div>

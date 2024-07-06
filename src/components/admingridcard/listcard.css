@@ -1,0 +1,14 @@
+.adminlistcard:hover h3{
+    color: var(--color);
+}
+.adminlistcard{
+    cursor: pointer;
+}
+.adminlistcard:first-child{
+    padding-top: 1rem;
+}
+.adminlistcard h3{
+    font-family: "inter";
+    font-size: 16px;
+    max-width: 600px;
+}

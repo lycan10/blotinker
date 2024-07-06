@@ -16,7 +16,7 @@ const SubscribeBTN = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event) => { 
     event.preventDefault();
     setIsLoading(true);
 
@@ -39,7 +39,7 @@ const SubscribeBTN = () => {
 
   return (
     <div className="navbar-subscribe">
-      <p onClick={handleShow}>Subscribe</p>
+      <p style={{color: "white"}} onClick={handleShow}>Subscribe</p>
       <Modal show={show} onHide={handleClose} animation={true} centered size="lg">
         <Modal.Body>
           <div className="sub">
