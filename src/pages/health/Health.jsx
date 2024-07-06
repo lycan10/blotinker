@@ -32,7 +32,7 @@ const Health = () => {
   }, [location]);
 
   return (
-    <div className='travels'>
+    <div className='travels'> 
       <Navbar />
       <div className="travel-container">
         <CategoryCards title="Health & Wellness" data={health && health?.posts?.length > 0 ? health?.posts: []}/>

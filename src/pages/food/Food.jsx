@@ -37,7 +37,7 @@ const Food = () => {
       <div className="travel-container">
         <CategoryCards title="Food & Recipes" data={food && food?.posts?.length > 0 ? food?.posts: []}/>
       </div>
-      <Footer />
+      <Footer /> 
     </div>
   )
 }

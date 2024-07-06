@@ -2,7 +2,7 @@
 
 }
 .category-container{
-    padding:  2rem 3rem 4rem;
+    padding:  2rem 3rem 0rem;
 }
 .category-title{
     display: flex;
@@ -16,8 +16,8 @@
     font-size: 23px;
     font-weight: 400;
 }
-.category-content-container{
-    margin: 2rem 0 6rem;
+.category-content-container{ 
+    margin: 2rem 0 2rem;
 }
 
 @media screen and (max-width: 1200px) {
@@ -42,7 +42,7 @@
         padding:  0rem 1rem 0rem;
     }
     .category-content-container{
-        margin: 2rem 0 3rem;
+        margin: 2rem 0 0rem;
     }
     .category-title{
         display: flex;
@@ -60,6 +60,9 @@
 @media screen and (max-width: 500px) {
     .category-container{
         padding:  0rem 1rem 0rem;
+    }
+    .category-content-container{
+        margin: 1.5rem 0 1.5rem;
     }
     .category-title{
         display: flex;
