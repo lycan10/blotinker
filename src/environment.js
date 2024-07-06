@@ -1,1 +1,1 @@
-export const BASE_URL = `https://blotinker.vidarave.com`;
+export const BASE_URL = `http://167.172.248.63:4000`;
