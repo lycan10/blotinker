@@ -1,16 +1,14 @@
 import React from 'react'
-
-
 import "./listcard.css"
-
+import { Link } from 'react-router-dom';
 import { RiEditFill } from "react-icons/ri";
 import { MdDelete } from "react-icons/md";
 
 
-const ListCard = ({ img, title, description }) => {
+const ListCard = ({ img, title, description, slug }) => {
 
   return (
-    <div className='adminlistcard'>
+    <Link className="text-decoration-none text-dark adminlistcard" to={`/posts/${slug}`}>
         <div className="adminlistcard-image">
             <img src={img} alt="" />
         </div>
@@ -22,7 +20,7 @@ const ListCard = ({ img, title, description }) => {
                 <p>{description}</p>
             </div>
         </div>
-    </div>
+    </Link>
   )
 }
 

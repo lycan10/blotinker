@@ -135,6 +135,7 @@ const Categories = ({ title, data }) => {
               img={item.imageUrl}
               title={item.title}
               description={item.excerpt}
+              slug={item.slug}
             />
             ))
           }
