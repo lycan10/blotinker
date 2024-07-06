@@ -11,20 +11,10 @@ import Footer from '../../components/footer/Footer.jsx';
 import ReactGA from 'react-ga4';
 import { useLocation } from 'react-router-dom';
 
-const travelData = [
-    {
-        id: 0,
-        header: "Travel & Adventure",
-        img: cat1,
-        title: "FETCH FESTIVAL BRLN 2023",
-        author: "ByJena McGregorForbes Staff",
-      
-    }
-  ]
 
 const Travel = () => {
   const location = useLocation();
-  const { data: travel, isLoading: loading, error } = useGetData('/posts?perPage=20&category=1&minimal=true');
+  const { data: travel, isLoading: loading, error } = useGetData('/posts?perPage=20&category=1');
 
   useEffect(() => {
     ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });

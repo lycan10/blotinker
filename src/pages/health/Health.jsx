@@ -12,20 +12,9 @@ import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import ReactGA from 'react-ga4';
 
-const HealthData = [
-    {
-        id: 0,
-        header: "Health & Wellness",
-        img: image5,
-        title: "FETCH FESTIVAL BRLN 2023",
-        author: "ByJena McGregorForbes Staff",
-      
-    }
-  ]
-
 const Health = () => {
   const location = useLocation();
-  const { data: health, isLoading: healthloading, healtherror } = useGetData('/posts?perPage=20&category=2&minimal=true');
+  const { data: health, isLoading: healthloading, healtherror } = useGetData('/posts?perPage=20&category=2');
 
   useEffect(() => {
     ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });

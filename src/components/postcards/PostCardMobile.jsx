@@ -23,11 +23,11 @@ const PostCardMobile = ({
                 </ul>
         </div>
         <div className="postcards-title">
-        <Link className="text-decoration-none text-dark" to={`/posts/${slug}`}><h1>{title}</h1></Link>
+        <Link className="text-decoration-none text-dark" to={`/posts/${slug}`}><h1 className='truncate'>{title}</h1></Link>
         </div>
         <div className="popularcards-content">
-                    <p className='truncate3'>{excerpt}</p>
-                </div>
+          <p className='truncate3'>{excerpt}</p>
+        </div>
     </div>
     </div>
   )

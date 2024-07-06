@@ -134,7 +134,7 @@ const Categories = ({ title, data }) => {
             <ListCard
               img={item.imageUrl}
               title={item.title}
-              description={item.description}
+              description={item.excerpt}
             />
             ))
           }
