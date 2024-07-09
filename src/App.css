@@ -284,7 +284,7 @@ canvas {
 }
 .adminpage-right-content-dashboard-bottom-container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     column-gap: 15px;
     padding: 1rem 1rem 3rem;
 }

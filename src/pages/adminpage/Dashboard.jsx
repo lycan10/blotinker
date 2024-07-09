@@ -13,7 +13,7 @@ import { useGetData } from '../../components/hooks/useGetData';
 const Dashboard = () => {
   const { data: stats, isLoading, error } = useGetData(`/stats`);
   const labels = stats?.monthlyTraffic ? stats?.monthlyTraffic.map(entry => `${entry.month} ${entry.year}`) : [];
-  const activeUsersList = stats?.monthlyTraffic ? stats?.monthlyTraffic.map(entry => Number(entry.activeUsers)) : [];
+  const totalViews = stats?.monthlyTraffic ? stats?.monthlyTraffic.map(entry => Number(entry.totalViews)) : [];
 
   const categoryLabels = stats?.top_categories ? stats?.top_categories.map(entry => `${entry.name}`) : [];
   const categoryValues = stats?.top_categories ? stats?.top_categories.map(entry => Number(entry.viewCount)) : [];
@@ -86,14 +86,14 @@ const Dashboard = () => {
   const monthlyViews = [
     {
       "name":"Views",
-      data: activeUsersList,
+      data: totalViews,
     }
   ];
 
   
 
   const DeviceLabels = stats?.devices ? stats?.devices.map(entry => `${entry.deviceType}`) : [];
-  const DeviceValue = stats?.devices ? stats?.devices.map(entry => Number(entry.activeUsers)) : [];
+  const DeviceValue = stats?.devices ? stats?.devices.map(entry => parseFloat(entry.activeUsers)) : [];
 
   const locationLabels = stats?.topCountries ? stats?.topCountries.map(entry => `${entry.country}`) : [];
   const locationValue = stats?.topCountries ? stats?.topCountries.map(entry => Number(entry.activeUsers)) : [];
@@ -250,14 +250,14 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="adminpage-right-content-dashboard-bottom-container">
-        <div className="adminpage-right-content-dashboard-bottom">
+        {/*<div className="adminpage-right-content-dashboard-bottom">
           <div className="bottom-stats-title">
             <h3>Top category</h3>
           </div>
           <div className="bottom-stats-content-container">
             <Chart  options={barOptions} series={categories}  type="bar" height="300" />
           </div>
-        </div>
+        </div>*/}
         <div className="adminpage-right-content-dashboard-bottom">
           <div className="bottom-stats-title">
             <h3>Top demography</h3>
