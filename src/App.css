@@ -129,7 +129,8 @@
     padding: 2rem 1rem;
 }
 .adminpage-logo h1{
-    color: white;
+    color: var(--color);
+    font-size: 23px;
 }
 .adminpage-title{
     padding: 2rem 1rem;
@@ -163,6 +164,7 @@
     letter-spacing: 1px;
     color: var(--color);
     margin-left: 0.6rem;
+    margin-bottom: 0;
 }
 .adminpage-analytics{
     padding: 1rem;
@@ -170,10 +172,11 @@
     cursor: pointer;
 }
 .adminpage-analytics h3{
-    font-family: var(--font-family);
-    font-size: 23px;
+    font-family: "inter";
+    font-size: 21px;
     font-weight: 600;
     letter-spacing: 1px;
+    margin-bottom: 0;
     color: black;
 }
 .adminpage-categories-accordion{
@@ -232,6 +235,7 @@
     letter-spacing: 1px;
     padding: 0;
     margin-top: 0.3rem;
+    margin-bottom: 0;
     color: white;
 }
 .adminpage-right-content-container{
@@ -469,7 +473,6 @@ padding: 1.5rem 0 ;
         padding: 2rem 1rem;
     }
     .adminpage-logo h1{
-        color: white;
     }
     .adminpage-title{
         padding: 2rem 1rem;
@@ -510,8 +513,7 @@ padding: 1.5rem 0 ;
         cursor: pointer;
     }
     .adminpage-analytics h3{
-        font-family: var(--font-family);
-        font-size: 23px;
+        font-size: 19px;
         font-weight: 600;
         letter-spacing: 1px;
         color: black;
@@ -832,8 +834,6 @@ padding: 1.5rem 0 ;
 
     }
     .adminpage-logo h1{
-        color: white;
-        font-size: 30px;
     }
     .adminpage-title{
         padding: 2rem 1rem;
@@ -874,7 +874,6 @@ padding: 1.5rem 0 ;
         cursor: pointer;
     }
     .adminpage-analytics h3{
-        font-family: var(--font-family);
         font-size: 19px;
         font-weight: 600;
         letter-spacing: 1px;
@@ -1183,8 +1182,7 @@ padding: 1.5rem 0 ;
 
     }
     .adminpage-logo h1{
-        color: white;
-        font-size: 30px;
+        font-size: 19px;
     }
     .adminpage-title{
         padding: 2rem 1rem;
@@ -1225,7 +1223,6 @@ padding: 1.5rem 0 ;
         cursor: pointer;
     }
     .adminpage-analytics h3{
-        font-family: var(--font-family);
         font-size: 19px;
         font-weight: 600;
         letter-spacing: 1px;
@@ -1435,6 +1432,9 @@ padding: 1.5rem 0 ;
         border-radius: 0.5rem;
         padding: 1rem;
     }
+    .home .category-content-container {
+        margin: 0 1.5rem 1.5rem !important;  
+      }
 }
 @media screen and (max-width: 350px) {
     .adminpage{
@@ -1541,8 +1541,6 @@ padding: 1.5rem 0 ;
 
     }
     .adminpage-logo h1{
-        color: white;
-        font-size: 30px;
     }
     .adminpage-title{
         padding: 2rem 1rem;
@@ -1583,8 +1581,7 @@ padding: 1.5rem 0 ;
         cursor: pointer;
     }
     .adminpage-analytics h3{
-        font-family: var(--font-family);
-        font-size: 19px;
+        font-size: 16px;
         font-weight: 600;
         letter-spacing: 1px;
         color: black;

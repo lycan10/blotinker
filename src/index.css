@@ -49,5 +49,10 @@ body {
   }
 }
 
+@media screen and (max-width: 500px) {
+  .home .category-content-container {
+    margin: 0 0rem 1rem !important;  
+  }
+}
 
 

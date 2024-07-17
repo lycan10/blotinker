@@ -109,7 +109,7 @@ li::marker {
   .home-sotw{
     width: 100%;
     position: relative;
-    margin-top: 8rem;
+    margin-top: 6rem;
   }
  .home-sotw-image{
     background-image: url("../../assets//sotw.jpg");
@@ -184,7 +184,7 @@ position: absolute;
     color: grey;
 }
 .home-popular{
-    padding: 3rem;
+    padding: 3rem 3rem 0; 
 }
 .home-popular h3{
     font-family: "inter";
@@ -400,7 +400,7 @@ position: absolute;
       .home-sotw{
         width: 100%;
         position: relative;
-        margin-top: 8rem;
+        margin-top: 5rem;
       }
      .home-sotw-image{
         background-image: url("../../assets//sotw.jpg");
@@ -470,7 +470,7 @@ position: absolute;
         color: grey;
     }
     .home-popular{
-        padding: 2rem 2rem 3rem;
+        padding: 2rem 2rem 1rem;
     }
     .home-popular h3{
         font-size: 23px;

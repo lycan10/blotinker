@@ -667,7 +667,7 @@ color: var(--color);
         transition: all 0.3s linear;
     }
     .category-menu-title h1{
-        font-size: 21px;
+        font-size: 19px;
         font-weight: 600;
         margin-left: 0;
         margin-right: 0.5rem;

@@ -22,7 +22,7 @@ const Sidebar = ({ showOffcanvas, handleViewChange, navigateToHome }) => {
   return (
     <div className={`adminpage-left ${showOffcanvas ? 'open' : ''}`}>
       <div className="adminpage-logo" onClick={navigateToHome}>
-        <h1>Blotink</h1>
+        <h1>The Unburden</h1>
       </div>
       <div className="adminpage-analytics">
         <h3><Link className="text-decoration-none text-dark" to={`/admin`}>Dashboard</Link></h3>
