@@ -275,15 +275,14 @@ padding: 1.2rem 0;
     object-fit: cover;
 }
 .recent-post-title{
-    margin: 1.5rem 0 0; 
+    margin: 1.5rem 0 1.5rem; 
     padding: 0;
     height: 40px;
 }
 .recent-post-title h1{
     font-family: "inter";
     font-size: 16px;
-   
-    line-height: 21px;
+    line-height: 24px;
 }
 .recent-post-content{
     border-top: 1px solid rgb(193, 193, 193);
@@ -578,12 +577,9 @@ button{
         object-fit: cover;
     }
     .recent-post-title{
-        margin: 2rem 0; 
-        padding: 0 24px;
         height: 40px;
     }
     .recent-post-title h1{
-        font-family: var(--font-family);
         font-size: 16px;
        
         line-height: 23px;
@@ -902,12 +898,10 @@ button{
         object-fit: cover;
     }
     .recent-post-title{
-        margin: 2rem 0; 
-        padding: 0 0px;
-        height: 40px;
+        height: 25px;
+        margin: 1rem 0;
     }
     .recent-post-title h1{
-        font-family: var(--font-family);
         font-size: 16px;
        
         line-height: 23px;
@@ -1222,18 +1216,18 @@ button{
         object-fit: cover;
     }
     .recent-post-title{
-        margin: 1rem 0 0; 
-        padding: 0 0rem;
-        height: 40px;
+        margin: 1rem 0; 
+        padding: 0 0;
+        height: 20px;
     }
     .recent-post-title h1{
         font-size: 16px;
-        line-height: 23px;
+        line-height: 25px;
     }
     .recent-post-content{
         border-top: 1px solid rgb(193, 193, 193);
         padding-top: 1rem;
-        margin-top: 2rem;
+        margin-top: 2.5rem;
 
     }
     .recent-post-data-container{
